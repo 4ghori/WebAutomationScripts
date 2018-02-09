@@ -1,0 +1,45 @@
+Status: FAILED
+Time Taken: 113
+Size: 4599
+Timestamp: Wed Aug 30 11:32:32 EDT 2017
+TestStep: Artist Name - Number
+
+----------------- Messages ------------------------------
+[Contains 3] Missing token [name":"The 1975] in Response
+
+----------------- Properties ------------------------------
+HTTP Version: HTTP/1.1
+Endpoint: http://qa-api.msg.com
+Method: GET
+StatusCode: 200
+URL: http://qa-api.msg.com/v2/artists?artist_name=1
+
+---------------- Request ---------------------------
+Authorization: [Bearer 976a98bca2332872bbb279819b645af7]
+Connection: [Keep-Alive]
+User-Agent: [Apache-HttpClient/4.4 (Java 1.5 minimum; Java/1.8.0_121)]
+Host: [qa-api.msg.com]
+Accept-Encoding: [gzip,deflate]
+
+GET http://qa-api.msg.com/v2/artists?artist_name=1 HTTP/1.1
+Accept-Encoding: gzip,deflate
+Authorization: Bearer 976a98bca2332872bbb279819b645af7
+Host: qa-api.msg.com
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.4 (Java 1.5 minimum; Java/1.8.0_121)
+
+
+---------------- Response --------------------------
+set-cookie: [connect.sid=s%3AK3RNTtLjStkl75pty55AKDRlrlK5KXcC.SNK7%2B9jO5JF45SOVLHLe7ZoGhw4fYSwZYYMa41rs5WU; Path=/; Expires=Wed, 30 Aug 2017 16:32:32 GMT; HttpOnly]
+Server: [nginx/1.10.3]
+Access-Control-Allow-Origin: [*]
+ETag: [W/"11f7-AhPfpv2+WkWgotfYLANeCQ"]
+Connection: [keep-alive]
+#status#: [HTTP/1.1 200 OK]
+Content-Length: [4599]
+Date: [Wed, 30 Aug 2017 15:32:32 GMT]
+Access-Control-Allow-Headers: [Authorization, Origin, X-Requested-With, Content-Type, Accept,]
+Content-Type: [application/json; charset=utf-8]
+X-Powered-By: [Express]
+
+{"status":"Success","code":200,"message":"Ok","results":[{"id":"K8vZ9174YM0","_links":{"self":{"href":"/discovery/v2/attractions/K8vZ9174YM0?locale=en-us"}},"locale":"en-us","url":"http://www.ticketmaster.com/artist/2329127","test":false,"type":"attraction","name":"Sam Hunt 15 In A 30 Tour","classifications":[{"subType":{"id":"KZFzBErXgnZfZ7v7lJ","name":"Undefined"},"type":{"id":"KZAyXgnZfZ7v7nI","name":"Undefined"},"subGenre":{"id":"KZazBEonSMnZfZ7vAFa","name":"Country"},"genre":{"id":"KnvZfZ7vAv6","name":"Country"},"segment":{"id":"KZFzniwnSyZfZ7v7nJ","name":"Music"},"primary":true}],"images":[{"fallback":false,"height":639,"width":1136,"url":"https://s1.ticketm.net/dam/a/c86/5123b54d-274e-4e57-9d00-d00e015b1c86_283781_RETINA_LANDSCAPE_16_9.jpg","ratio":"16_9"},{"fallback":false,"height":56,"width":100,"url":"https://s1.ticketm.net/dam/a/c86/5123b54d-274e-4e57-9d00-d00e015b1c86_283781_RECOMENDATION_16_9.jpg","ratio":"16_9"},{"fallback":false,"height":1152,"width":2048,"url":"https://s1.ticketm.net/dam/a/c86/5123b54d-274e-4e57-9d00-d00e015b1c86_283781_TABLET_LANDSCAPE_LARGE_16_9.jpg","ratio":"16_9"},{"fallback":false,"height":683,"width":1024,"url":"https://s1.ticketm.net/dam/a/c86/5123b54d-274e-4e57-9d00-d00e015b1c86_283781_TABLET_LANDSCAPE_3_2.jpg","ratio":"3_2"},{"fallback":false,"height":427,"width":640,"url":"https://s1.ticketm.net/dam/a/c86/5123b54d-274e-4e57-9d00-d00e015b1c86_283781_RETINA_PORTRAIT_3_2.jpg","ratio":"3_2"},{"fallback":false,"height":360,"width":640,"url":"https://s1.ticketm.net/dam/a/c86/5123b54d-274e-4e57-9d00-d00e015b1c86_283781_RETINA_PORTRAIT_16_9.jpg","ratio":"16_9"},{"fallback":false,"height":203,"width":305,"url":"https://s1.ticketm.net/dam/a/c86/5123b54d-274e-4e57-9d00-d00e015b1c86_283781_ARTIST_PAGE_3_2.jpg","ratio":"3_2"},{"fallback":false,"height":225,"width":305,"url":"https://s1.ticketm.net/dam/a/c86/5123b54d-274e-4e57-9d00-d00e015b1c86_283781_CUSTOM.jpg","ratio":"4_3"},{"fallback":false,"height":576,"width":1024,"url":"https://s1.ticketm.net/dam/a/c86/5123b54d-274e-4e57-9d00-d00e015b1c86_283781_TABLET_LANDSCAPE_16_9.jpg","ratio":"16_9"},{"fallback":false,"height":115,"width":205,"url":"https://s1.ticketm.net/dam/a/c86/5123b54d-274e-4e57-9d00-d00e015b1c86_283781_EVENT_DETAIL_PAGE_16_9.jpg","ratio":"16_9"}],"category":[{"name":"Music"}],"sub_category":"Country"},{"id":"K8vZ917oYcV","name":"Fresh 102.7's Fall Fest","type":"attraction","test":false,"url":"http://www.ticketmaster.com/artist/1920015","locale":"en-us","_links":{"self":{"href":"/discovery/v2/attractions/K8vZ917oYcV?locale=en-us"}},"classifications":[{"subType":{"id":"KZFzBErXgnZfZ7v7lJ","name":"Undefined"},"type":{"id":"KZAyXgnZfZ7v7nI","name":"Undefined"},"subGenre":{"id":"KZazBEonSMnZfZ7v6F1","name":"Pop"},"genre":{"id":"KnvZfZ7vAeA","name":"Rock"},"segment":{"id":"KZFzniwnSyZfZ7v7nJ","name":"Music"},"primary":true}],"images":[{"fallback":true,"height":203,"width":305,"url":"https://s1.ticketm.net/dam/c/fbc/b293c0ad-c904-4215-bc59-8d7f2414dfbc_106141_ARTIST_PAGE_3_2.jpg","ratio":"3_2"},{"fallback":true,"height":56,"width":100,"url":"https://s1.ticketm.net/dam/c/fbc/b293c0ad-c904-4215-bc59-8d7f2414dfbc_106141_RECOMENDATION_16_9.jpg","ratio":"16_9"},{"fallback":false,"height":225,"width":305,"url":"https://s1.ticketm.net/dbimages/182960a.jpg","ratio":"4_3"},{"fallback":false,"height":115,"width":205,"url":"https://s1.ticketm.net/dbimages/182961a.jpg","ratio":"16_9"},{"fallback":true,"height":683,"width":1024,"url":"https://s1.ticketm.net/dam/c/fbc/b293c0ad-c904-4215-bc59-8d7f2414dfbc_106141_TABLET_LANDSCAPE_3_2.jpg","ratio":"3_2"},{"fallback":true,"height":360,"width":640,"url":"https://s1.ticketm.net/dam/c/fbc/b293c0ad-c904-4215-bc59-8d7f2414dfbc_106141_RETINA_PORTRAIT_16_9.jpg","ratio":"16_9"},{"fallback":true,"height":639,"width":1136,"url":"https://s1.ticketm.net/dam/c/fbc/b293c0ad-c904-4215-bc59-8d7f2414dfbc_106141_RETINA_LANDSCAPE_16_9.jpg","ratio":"16_9"},{"fallback":true,"height":1152,"width":2048,"url":"https://s1.ticketm.net/dam/c/fbc/b293c0ad-c904-4215-bc59-8d7f2414dfbc_106141_TABLET_LANDSCAPE_LARGE_16_9.jpg","ratio":"16_9"},{"fallback":true,"height":576,"width":1024,"url":"https://s1.ticketm.net/dam/c/fbc/b293c0ad-c904-4215-bc59-8d7f2414dfbc_106141_TABLET_LANDSCAPE_16_9.jpg","ratio":"16_9"},{"fallback":true,"height":427,"width":640,"url":"https://s1.ticketm.net/dam/c/fbc/b293c0ad-c904-4215-bc59-8d7f2414dfbc_106141_RETINA_PORTRAIT_3_2.jpg","ratio":"3_2"}],"category":[{"name":"Music"}],"sub_category":"Rock,Pop"}],"meta":{"artist_name":"1","pagination":{"size":20,"page":1,"total_elements":2,"total_pages":1}}}

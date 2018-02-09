@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Rockettes Regression Test (TestNG)" parallel="tests" thread-count="8">
+	    <test name="Rockettes Regression Test - 024 Rockettes Mobile Test Cases">
+    <classes>
+          <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+		<methods>
+			<include name="MSGRock024RockettesMobileTestCases" />
+		</methods>
+		  </class>
+    </classes>
+  </test> <!-- Test -->
+  </suite>

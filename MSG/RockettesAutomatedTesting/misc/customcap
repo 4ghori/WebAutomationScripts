@@ -1,0 +1,8 @@
+#=====================================================#
+#================ Custom Capabilities ================#
+#=====================================================#
+build=1
+name=Rockettes Regression Script
+public=team
+browserVersion=38
+os=OS X 10.11

@@ -1,0 +1,319 @@
+<con:soapui-project id="be844354-b51d-4034-b652-6b3444b4c08f" activeEnvironment="Default environment" name="Event Engine Regression Suite" lastOpened="2017-03-01T15:10:58.034-05:00" resourceRoot="" soapui-version="6.0.0"
+	xmlns:con="http://eviware.com/soapui/config">
+	<con:settings/>
+	<con:interface xsi:type="con:RestService" id="82ff95e5-0e88-49ba-b894-ca0a0c179416" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://qa-api.msg.com" type="rest"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<con:settings/>
+		<con:definitionCache type="TEXT" rootPart=""/>
+		<con:endpoints>
+			<con:endpoint>http://developer.msg.com</con:endpoint>
+		</con:endpoints>
+		<con:resource name="" path="/v1/dates" id="7b007f0f-baaf-44e4-9b34-37beae37d1ba">
+			<con:settings/>
+			<con:parameters/>
+			<con:method name="" id="8e3c81d0-70a7-4cc0-876e-e6e229a278e3" method="GET">
+				<con:settings/>
+				<con:parameters/>
+				<con:representation type="RESPONSE">
+					<con:mediaType>text/html</con:mediaType>
+					<con:status>200</con:status>
+					<con:params/>
+					<con:element>html</con:element>
+				</con:representation>
+				<con:representation type="RESPONSE">
+					<con:mediaType>application/json; charset=utf-8</con:mediaType>
+					<con:status>200</con:status>
+					<con:params/>
+					<con:element
+						xmlns:dat="https://dev-api.msg.com/v2/dates">dat:Response
+					</con:element>
+				</con:representation>
+				<con:representation type="RESPONSE">
+					<con:mediaType xsi:nil="true"/>
+					<con:status>0</con:status>
+					<con:params/>
+					<con:element>data</con:element>
+				</con:representation>
+				<con:representation type="RESPONSE">
+					<con:mediaType xsi:nil="true"/>
+					<con:status>0</con:status>
+					<con:params/>
+					<con:element>data</con:element>
+				</con:representation>
+				<con:representation type="FAULT">
+					<con:mediaType>text/html</con:mediaType>
+					<con:status>404</con:status>
+					<con:params/>
+					<con:element>html</con:element>
+				</con:representation>
+				<con:request name="Request 1" id="f8655d58-6e4b-4cbe-8ef3-48e7ba76513c" mediaType="application/json">
+					<con:settings>
+						<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+				</con:settings>
+				<con:endpoint>http://qa-api.msg.com</con:endpoint>
+				<con:request/>
+				<con:originalUri>https://dev-api.msg.com/v2/dates</con:originalUri>
+				<con:credentials>
+					<con:authType>No Authorization</con:authType>
+				</con:credentials>
+				<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+				<con:parameters/>
+			</con:request>
+		</con:method>
+	</con:resource>
+</con:interface>
+<con:interface xsi:type="con:RestService" id="e0b4d7c3-797c-40ee-8dd1-432f07448864" wadlVersion="http://wadl.dev.java.net/2009/02" name="REST Service 1" type="rest"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<con:settings/>
+	<con:definitionCache type="TEXT" rootPart=""/>
+	<con:endpoints/>
+	<con:resource name="/" path="/v2/shows" id="bb176157-4d86-48dc-8a1f-a798384fe7e3">
+		<con:settings/>
+		<con:parameters/>
+		<con:method name="GET" id="f1a8f2cf-66d1-415c-bdd3-2298e6e4ec4f" method="GET">
+			<con:settings/>
+			<con:parameters/>
+			<con:representation type="RESPONSE">
+				<con:mediaType>application/json; charset=utf-8</con:mediaType>
+				<con:status>200</con:status>
+				<con:params/>
+				<con:element
+					xmlns:show="http://qa-api.msg.com/v2/shows">show:Response
+				</con:element>
+			</con:representation>
+			<con:request name="GET Request" id="01585362-8888-4781-9f34-5b89ed72e305" mediaType="application/json">
+				<con:settings/>
+				<con:endpoint>http://qa-api.msg.com</con:endpoint>
+				<con:request/>
+				<con:credentials>
+					<con:authType>No Authorization</con:authType>
+				</con:credentials>
+				<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+				<con:parameters/>
+			</con:request>
+		</con:method>
+	</con:resource>
+</con:interface>
+<con:interface xsi:type="con:RestService" id="766d8bbe-084f-4717-ab5b-2e572a6761e2" wadlVersion="http://wadl.dev.java.net/2009/02" name="REST Service 2" type="rest"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<con:settings/>
+	<con:definitionCache type="TEXT" rootPart=""/>
+	<con:endpoints/>
+	<con:resource name="/v1/dates" path="/v1/dates" id="9aceb838-4bbe-4419-897a-10d5931d2fc5">
+		<con:settings/>
+		<con:parameters/>
+		<con:method name="GET" id="d7ad3af2-8ef6-4d8d-907f-52f48516a4f0" method="GET">
+			<con:settings/>
+			<con:parameters/>
+			<con:representation type="FAULT">
+				<con:mediaType>text/html; charset=utf-8</con:mediaType>
+				<con:status>404</con:status>
+				<con:params/>
+				<con:element>html</con:element>
+			</con:representation>
+			<con:representation type="RESPONSE">
+				<con:mediaType>application/json; charset=utf-8</con:mediaType>
+				<con:status>200</con:status>
+				<con:params/>
+			</con:representation>
+			<con:request name="GET Request" id="4a13f770-86e9-4bfa-9741-dcc90110ef02" mediaType="application/json">
+				<con:settings>
+					<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+			</con:settings>
+			<con:endpoint>http://qa-api.msg.com</con:endpoint>
+			<con:request/>
+			<con:originalUri>http://qa-api.msg.com/v1/dates</con:originalUri>
+			<con:credentials>
+				<con:authType>No Authorization</con:authType>
+			</con:credentials>
+			<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+			<con:parameters/>
+		</con:request>
+	</con:method>
+</con:resource>undefined</con:interface>undefined<con:interface xsi:type="con:RestService" id="b0d80de4-bb54-44cc-b959-ec7ed6577704" wadlVersion="http://wadl.dev.java.net/2009/02" name="REST Service 3" type="rest"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<con:settings/>
+<con:definitionCache type="TEXT" rootPart=""/>
+<con:endpoints/>
+<con:resource name="/v2/dates" path="/v2/dates" id="3ab0a444-2ba8-4713-ac28-6a04359bede7">
+	<con:settings/>
+	<con:parameters/>
+	<con:method name="GET" id="3247ceb5-37f1-4793-82fd-960d0eea7625" method="GET">
+		<con:settings/>
+		<con:parameters/>
+		<con:representation type="RESPONSE">
+			<con:mediaType>application/json; charset=utf-8</con:mediaType>
+			<con:status>200</con:status>
+			<con:params/>
+			<con:element
+				xmlns:dat="http://qa-api.msg.com/v2/dates">dat:Response
+			</con:element>
+		</con:representation>
+		<con:request name="GET Request" id="857e4b11-bc5b-4514-bf86-cfab780486ad" mediaType="application/json">
+			<con:settings/>
+			<con:endpoint>http://qa-api.msg.com</con:endpoint>
+			<con:parameters/>
+		</con:request>
+	</con:method>
+</con:resource>undefined</con:interface>undefined<con:interface xsi:type="con:RestService" id="8bf62462-8523-462e-b154-e198a11c3447" wadlVersion="http://wadl.dev.java.net/2009/02" name="REST Service 4" type="rest"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<con:settings/>
+<con:definitionCache type="TEXT" rootPart=""/>
+<con:endpoints/>
+<con:resource name="/v1/shows/010050FAB2A430EA/seat_map" path="/v1/shows/010050FAB2A430EA/seat_map" id="77f1262f-466c-465f-be81-117f099da0dc">
+	<con:settings/>
+	<con:parameters>
+		<con:parameter>
+			<con:name>purchase_flow</con:name>
+			<con:value>individual</con:value>
+			<con:style>QUERY</con:style>
+			<con:default>individual</con:default>
+		</con:parameter>
+	</con:parameters>
+	<con:method name="GET" id="8c565db4-5283-4d9b-93cf-b5a3bea8a221" method="GET">
+		<con:settings/>
+		<con:parameters/>
+		<con:representation type="RESPONSE">
+			<con:mediaType>application/json; charset=utf-8</con:mediaType>
+			<con:status>200</con:status>
+			<con:params/>
+			<con:element
+				xmlns:seat="http://qa-api.msg.com/v1/shows/010050FAB2A430EA/seat_map">seat:Response
+			</con:element>
+		</con:representation>
+		<con:request name="GET Request" id="d8b511b6-894e-4917-a70f-922a07865377" mediaType="application/json">
+			<con:settings/>
+			<con:endpoint>http://qa-api.msg.com</con:endpoint>
+			<con:parameters/>
+		</con:request>
+	</con:method>
+</con:resource>undefined</con:interface>undefined<con:testSuite id="735710b0-721b-441e-892d-43e936d46fea" name="Event Engine TestSuite">
+<con:settings/>
+<con:savedRecentRuns>1</con:savedRecentRuns>
+<con:runType>SEQUENTIAL</con:runType>
+<con:testCase id="98d5b872-fb67-4619-a6d1-e92f5f1e9281" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="qa-api.msg.com Dates TestCase" searchProperties="true" timeout="0">
+	<con:settings/>
+	<con:savedRecentRuns>1</con:savedRecentRuns>
+	<con:testStep type="restrequest" name="Event Engine Test Step 1 - v2/dates URL" id="de6ef5eb-f4f6-4f32-9e7d-4627c7b92226">
+		<con:settings/>
+		<con:config service="REST Service 3" resourcePath="/v2/dates" methodName="GET" xsi:type="con:RestRequestStep"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<con:restRequest name="Event Engine Test Step 1 - v2/dates URL" id="857e4b11-bc5b-4514-bf86-cfab780486ad" mediaType="application/json">
+				<con:settings>
+					<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+			</con:settings>
+			<con:endpoint>http://qa-api.msg.com</con:endpoint>
+			<con:request/>
+			<con:originalUri>http://qa-api.msg.com/v2/dates</con:originalUri>
+			<con:assertion type="Valid HTTP Status Codes" id="debb03ed-290d-4421-8545-65762978a99f" name="Valid HTTP Status Codes">
+				<con:settings/>
+				<con:configuration>
+					<codes>200</codes>
+				</con:configuration>
+			</con:assertion>
+			<con:assertion type="Simple Contains" id="77203749-8151-4191-b516-f6d1e43077bd" name="Contains">
+				<con:configuration>
+					<token>is_sponsored_day</token>
+					<ignoreCase>false</ignoreCase>
+					<useRegEx>false</useRegEx>
+				</con:configuration>
+			</con:assertion>
+			<con:credentials>
+				<con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+				<con:authType>No Authorization</con:authType>
+			</con:credentials>
+			<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+			<con:parameters/>
+		</con:restRequest>
+	</con:config>
+</con:testStep>
+<con:testStep type="restrequest" name="Event Engine Test Step 2 - v2/shows URL" id="8cf7ecf1-656b-499d-b536-6c42cc49da04">
+	<con:settings/>
+	<con:config service="REST Service 1" resourcePath="/v2/shows" methodName="GET" xsi:type="con:RestRequestStep"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<con:restRequest name="Event Engine Test Step 2 - v2/shows URL" id="01585362-8888-4781-9f34-5b89ed72e305" mediaType="application/json">
+			<con:settings>
+				<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+		</con:settings>
+		<con:endpoint>http://qa-api.msg.com</con:endpoint>
+		<con:request/>
+		<con:originalUri>http://qa-api.msg.com/v2/shows</con:originalUri>
+		<con:assertion type="Valid HTTP Status Codes" id="3f16dce1-ae24-4171-88cf-975c4163d461" name="Valid HTTP Status Codes">
+			<con:settings/>
+			<con:configuration>
+				<codes>200</codes>
+			</con:configuration>
+		</con:assertion>
+		<con:assertion type="Simple Contains" id="247d44ef-763a-408c-b72b-2c891329b97f" name="Contains">
+			<con:configuration>
+				<token>is_sold_out</token>
+				<ignoreCase>false</ignoreCase>
+				<useRegEx>false</useRegEx>
+			</con:configuration>
+		</con:assertion>
+		<con:credentials>
+			<con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+			<con:authType>No Authorization</con:authType>
+		</con:credentials>
+		<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+		<con:parameters/>
+	</con:restRequest>
+</con:config>undefined</con:testStep>undefined<con:testStep type="restrequest" name="Event Engine Test Step 4 - v1/shows Seat Map call" id="0b561b21-eaa8-42c7-b3d3-cfe9863f4aea">
+<con:settings/>
+<con:config service="REST Service 4" resourcePath="/v1/shows/010050FAB2A430EA/seat_map" methodName="GET" xsi:type="con:RestRequestStep"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<con:restRequest name="Event Engine Test Step 4 - v1/shows Seat Map call" id="d8b511b6-894e-4917-a70f-922a07865377" mediaType="application/json">
+		<con:settings>
+			<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+	</con:settings>
+	<con:endpoint>http://qa-api.msg.com</con:endpoint>
+	<con:request/>
+	<con:originalUri>http://qa-api.msg.com/v1/shows/010050FAB2A430EA/seat_map</con:originalUri>
+	<con:assertion type="Valid HTTP Status Codes" id="f75f8657-8ced-4781-902a-4f4d8dd1ad98" name="Valid HTTP Status Codes">
+		<con:settings/>
+		<con:configuration>
+			<codes>200</codes>
+		</con:configuration>
+	</con:assertion>
+	<con:assertion type="Simple Contains" id="05d47fd0-0823-4e82-b252-40972f5a0d72" name="Contains">
+		<con:configuration>
+			<token>area_name</token>
+			<ignoreCase>false</ignoreCase>
+			<useRegEx>false</useRegEx>
+		</con:configuration>
+	</con:assertion>
+	<con:credentials>
+		<con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+		<con:authType>No Authorization</con:authType>
+	</con:credentials>
+	<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+	<con:parameters/>
+</con:restRequest>undefined</con:config>undefined</con:testStep>undefined<con:testStep type="restrequest" name="Event Engine Test Step 3 - v1/dates URL" id="8795afbb-7cc9-488c-b770-50099bf2f80b">undefined<con:settings/>undefined<con:config service="http://qa-api.msg.com" methodName="" resourcePath="/v1/dates" xsi:type="con:RestRequestStep"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<con:restRequest name="Event Engine Test Step 3 - v1/dates URL" id="1aac2cc8-6093-4a35-9438-589ac3fa5b88" mediaType="application/json">
+	<con:settings>
+		<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+</con:settings>
+<con:encoding>UTF-8</con:encoding>
+<con:endpoint>http://qa-api.msg.com</con:endpoint>
+<con:request/>
+<con:originalUri>http://developer.msg.com/v2/dates</con:originalUri>
+<con:assertion type="Valid HTTP Status Codes" id="b31b481d-adae-474c-a428-dded4701fa84" name="Valid HTTP Status Codes">
+	<con:settings/>
+	<con:configuration>
+		<codes>200</codes>
+	</con:configuration>
+</con:assertion>
+<con:assertion type="Simple Contains" id="521f7443-6e66-4962-b949-b7919f26d21f" name="Contains">
+	<con:configuration>
+		<token>meta</token>
+		<ignoreCase>false</ignoreCase>
+		<useRegEx>false</useRegEx>
+	</con:configuration>
+</con:assertion>
+<con:credentials>
+	<con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+	<con:authType>No Authorization</con:authType>
+</con:credentials>
+<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+<con:parameters/>undefined</con:restRequest>undefined</con:config>undefined</con:testStep>undefined<con:properties/>undefined<con:reportParameters/>undefined<con:breakPoints>undefined<con:testStepId>8795afbb-7cc9-488c-b770-50099bf2f80b</con:testStepId>undefined<con:status>NONE</con:status>undefined<con:properties/>undefined</con:breakPoints>undefined<con:breakPoints>undefined<con:testStepId>8cf7ecf1-656b-499d-b536-6c42cc49da04</con:testStepId>undefined<con:status>NONE</con:status>undefined<con:properties/>undefined</con:breakPoints>undefined</con:testCase>undefined<con:properties/>undefined<con:reportParameters/>undefined</con:testSuite>undefined<con:savedRecentRuns>1</con:savedRecentRuns>undefined<con:requirements/>undefined<con:properties/>undefined<con:wssContainer/>undefined<con:databaseConnectionContainer/>undefined<con:oAuth2ProfileContainer/>undefined<con:reporting>undefined<con:reportTemplates/>undefined<con:xmlTemplates/>undefined<con:xmlTemplates/>undefined<con:parameters/>undefined<con:parameters/>undefined</con:reporting>undefined<con:reporting/>undefined<con:authRepository/>undefined<con:tags/>undefined</con:soapui-project>

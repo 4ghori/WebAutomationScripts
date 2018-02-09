@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Rockettes Regression Test (TestNG)" parallel="tests" thread-count="8">
+    <test name="Rockettes Regression Test - 001 Rockettes Home Page">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock001RockettesHomePage" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!-- Test -->
+        <test name="Rockettes Regression Test - 002 Christmas Spectacular Landing Page">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock002RockettesCSLandingPage" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!-- Test -->
+    <test name="Rockettes Regression Test - 003 Christmas Spectacular Calendar">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock003RockettesCSTickets" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!-- Test -->
+    <test name="Rockettes Regression Test - 004 Christmas Spectacular Groups">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock004RockettesCSGroups" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!-- Test -->
+      <test name="Rockettes Regression Test - 005 Christmas Spectacular Seating">
+    <classes>
+      <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+		<methods>
+			<include name="MSGRock005RockettesCSSeatingChart" />
+		</methods>
+		  </class>
+    </classes>
+  </test>     
+  <!-- Test -->
+    <test name="Rockettes Regression Test - 006 Christmas Spectacular Promotions">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock006RockettesCSPromotions" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!-- Test -->
+    <test name="Rockettes Regression Test - 007 Christmas Spectacular Plan Your Day">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock007RockettesCSPlanYourDay" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!-- Test -->
+    <test name="Rockettes Regression Test - 008 Christmas Spectacular Experiences">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock008RockettesCSExperiences" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+        <!-- Test -->
+        <test name="Rockettes Regression Test - 009 Christmas Spectacular News">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock009RockettesCSNews" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!-- Test -->
+    <test name="Rockettes Regression Test - 010 Christmas Spectacular Email Sign Up">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock010RockettesCSEmailSignUp" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!-- Test -->
+    <test name="Rockettes Regression Test - 011 Christmas Spectacular Partners">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock011RockettesCSPartners" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!-- Test -->
+    <!-- commented by Rachit Kumar Rastogi, after removing of NYSS from Rockettes Production on 10/17/17 -->
+    <!--   <test name="Rockettes Regression Test - 012 New York Spectacular Landing Page">
+    <classes>
+      <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+		<methods>
+			<include name="MSGRock012RockettesNYSLandingPage" />
+		</methods>
+		  </class>
+    </classes>
+  </test> Test
+  <test name="Rockettes Regression Test - 014 New York Spectacular Groups">
+    <classes>
+      <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+		<methods>
+			<include name="MSGRock014RockettesNYSGroups" />
+		</methods>
+		  </class>
+    </classes>
+  </test> Test
+  <test name="Rockettes Regression Test - 015 New York Spectacular Sponsors">
+    <classes>
+      <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+		<methods>
+			<include name="MSGRock015RockettesNYSSponsors" />
+		</methods>
+		  </class>
+    </classes> 
+  </test> Test -->
+    <test name="Rockettes Regression Test - 016 Blog">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock016RockettesBlog" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!-- Test -->
+    <test name="Rockettes Regression Test - 017 History">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock017RockettesHistory" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!-- Test -->
+    <test name="Rockettes Regression Test - 018 Photos">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock018RockettesPhotos" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!-- Test -->
+    <test name="Rockettes Regression Test - 019 Dance Education">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock019RockettesDanceEducation" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!-- Test -->
+    <test name="Rockettes Regression Test - 020 FAQ">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock020RockettesFAQ" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!-- Test -->
+    <test name="Rockettes Regression Test - 021 Store">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock021RockettesStore" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Rockettes Regression Test - 023 Contact Us">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock023RockettesContactUs" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Rockettes Regression Test - 024 Rockettes Mobile Test Cases">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.Rockettes.RockettesRegressionTestSuite">
+                <methods>
+                    <include name="MSGRock024RockettesMobileTestCases" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!-- Test -->
+</suite>

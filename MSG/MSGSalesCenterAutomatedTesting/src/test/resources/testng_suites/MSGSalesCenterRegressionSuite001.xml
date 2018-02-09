@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MSG Sales Center Regression Test (TestNG)" parallel="tests" thread-count="8">
+<listeners>
+<listener class-name="com.msg.qa.tests.MSGOnlineDigital.SalesCenter.MSGTestNGAnnotationTransfer" />
+</listeners>
+    <test name="MSG Sales Center  Regression Test">
+        <classes>
+            <class name="com.msg.qa.tests.MSGOnlineDigital.SalesCenter.MSGSalesCenterRegressionTestSuite">
+                <methods>
+                    <include name="MSGTC000LandingPage"/>
+                    <include name="MSGSalesCenterTC001VenueRentalsPage"/>
+                    <include name="MSGTC002VenueLandingPage"/>
+                    <include name="MSGSalesCenterTC003CorporateEntertainmentPage"/>
+                    <include name="MSGSalesCenterTC004PremiumHospitalityPage"/>
+                    <include name="MSGSalesCenterTC005GroupOutingsPage"/>
+                    <include name="MSGTC006CalendarPage"/>
+                    <include name="MSGTC007EventDetailsPage"/>
+                    <include name="MSGSalesCenterTC008VenueRentalsMSGRadioCityPage"/>
+                    <include name="MSGSalesCenterTC009PremHospMSGEventLevelSuitesPage"/>
+                    <include name="MSGSalesCenterTC010VenueToursPage"/>
+                    <include name="MSGSalesCenterTC011PremHospMSGKnicksPage"/>
+                    <include name="MSGTC012KnicksTicketsPage"/>
+                    <include name="MSGTC013RangersTicketsPage"/>
+                    <include name="MSGTC014MSGVenueGuidePage"/>
+                    <include name="MSGTC015SearchPage"/>                    
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

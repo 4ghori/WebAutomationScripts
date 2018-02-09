@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite verbose="1" name="Event Engine API Test Suite" skipfailedinvocationcounts="false" junit="false" parallel="false" data-provider-thread-count="50" annotations="JDK">
+	<test name="Event Engine API Test Suite">
+    <classes>
+			<class name="com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite">
+		<methods>
+			<include name="MSGEEAPI000All" />
+		</methods>
+		  </class>
+    </classes>
+  </test> <!-- Test -->
+</suite>

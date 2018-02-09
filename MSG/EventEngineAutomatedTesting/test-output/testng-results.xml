@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="10" passed="10">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="175020" started-at="2017-08-30T15:30:33Z" finished-at="2017-08-30T15:33:29Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="175020" started-at="2017-08-30T15:30:33Z" finished-at="2017-08-30T15:33:29Z">
+      <class name="com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite">
+        <test-method status="PASS" signature="executeBeforeTestSuite(org.testng.ITestContext)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeBeforeTestSuite" is-config="true" duration-ms="1901" started-at="2017-08-30T11:30:31Z" finished-at="2017-08-30T11:30:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@13dff835]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeBeforeTestSuite -->
+        <test-method status="PASS" signature="executeBeforeTestClass(org.testng.ITestContext)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeBeforeTestClass" is-config="true" duration-ms="3" started-at="2017-08-30T11:30:33Z" finished-at="2017-08-30T11:30:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@13dff835]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeBeforeTestClass -->
+        <test-method status="PASS" signature="executeBeforeTestMethod(org.testng.xml.XmlTest, java.lang.reflect.Method, org.testng.ITestContext)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeBeforeTestMethod" is-config="true" duration-ms="19617" started-at="2017-08-30T11:30:34Z" finished-at="2017-08-30T11:30:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Test: "Default test" verbose:2[parameters:][metagroups:] [included: ][excluded: ]  classes:[XmlClass class=com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite]  packages:] ]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite.MSGEEAPI000All() throws org.apache.http.client.ClientProtocolException,java.io.IOException,java.text.ParseException,java.lang.InterruptedException,java.net.MalformedURLException,java.security.NoSuchAlgorithmException,java.security.KeyManagementException,java.lang.Exception]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@13dff835]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeBeforeTestMethod -->
+        <test-method status="PASS" signature="suiteSetup1()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="suiteSetup1" is-config="true" duration-ms="2" started-at="2017-08-30T11:30:53Z" finished-at="2017-08-30T11:30:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteSetup1 -->
+        <test-method status="PASS" signature="MSGEEAPI000All()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="MSGEEAPI000All" duration-ms="23890" started-at="2017-08-30T11:30:53Z" description="Event Engine Test - All" finished-at="2017-08-30T11:31:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- MSGEEAPI000All -->
+        <test-method status="PASS" signature="executeAfterTestMethod(org.testng.ITestResult)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeAfterTestMethod" is-config="true" duration-ms="209" started-at="2017-08-30T11:31:17Z" finished-at="2017-08-30T11:31:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=MSGEEAPI000All status=SUCCESS method=EventEngineAPIRegressionTestSuite.MSGEEAPI000All()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeAfterTestMethod -->
+        <test-method status="PASS" signature="executeBeforeTestMethod(org.testng.xml.XmlTest, java.lang.reflect.Method, org.testng.ITestContext)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeBeforeTestMethod" is-config="true" duration-ms="13256" started-at="2017-08-30T11:31:17Z" finished-at="2017-08-30T11:31:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Test: "Default test" verbose:2[parameters:][metagroups:] [included: ][excluded: ]  classes:[XmlClass class=com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite]  packages:] ]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite.MSGEEAPI001VenuesPositive() throws org.apache.http.client.ClientProtocolException,java.io.IOException,java.text.ParseException,java.lang.InterruptedException,java.net.MalformedURLException,java.security.NoSuchAlgorithmException,java.security.KeyManagementException,java.lang.Exception]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@13dff835]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeBeforeTestMethod -->
+        <test-method status="PASS" signature="suiteSetup1()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="suiteSetup1" is-config="true" duration-ms="1" started-at="2017-08-30T11:31:30Z" finished-at="2017-08-30T11:31:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteSetup1 -->
+        <test-method status="PASS" signature="MSGEEAPI001VenuesPositive()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="MSGEEAPI001VenuesPositive" duration-ms="1017" started-at="2017-08-30T11:31:30Z" description="Event Engine Test - Venues - POSITIVE" finished-at="2017-08-30T11:31:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- MSGEEAPI001VenuesPositive -->
+        <test-method status="PASS" signature="executeAfterTestMethod(org.testng.ITestResult)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeAfterTestMethod" is-config="true" duration-ms="333" started-at="2017-08-30T11:31:32Z" finished-at="2017-08-30T11:31:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=MSGEEAPI001VenuesPositive status=SUCCESS method=EventEngineAPIRegressionTestSuite.MSGEEAPI001VenuesPositive()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeAfterTestMethod -->
+        <test-method status="PASS" signature="executeBeforeTestMethod(org.testng.xml.XmlTest, java.lang.reflect.Method, org.testng.ITestContext)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeBeforeTestMethod" is-config="true" duration-ms="16818" started-at="2017-08-30T11:31:32Z" finished-at="2017-08-30T11:31:49Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Test: "Default test" verbose:2[parameters:][metagroups:] [included: ][excluded: ]  classes:[XmlClass class=com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite]  packages:] ]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite.MSGEEAPI002VenuesEdge() throws org.apache.http.client.ClientProtocolException,java.io.IOException,java.text.ParseException,java.lang.InterruptedException,java.net.MalformedURLException,java.security.NoSuchAlgorithmException,java.security.KeyManagementException,java.lang.Exception]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@13dff835]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeBeforeTestMethod -->
+        <test-method status="PASS" signature="suiteSetup1()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="suiteSetup1" is-config="true" duration-ms="0" started-at="2017-08-30T11:31:49Z" finished-at="2017-08-30T11:31:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteSetup1 -->
+        <test-method status="PASS" signature="MSGEEAPI002VenuesEdge()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="MSGEEAPI002VenuesEdge" duration-ms="709" started-at="2017-08-30T11:31:49Z" description="Event Engine Test - Venues - EDGE" finished-at="2017-08-30T11:31:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- MSGEEAPI002VenuesEdge -->
+        <test-method status="PASS" signature="executeAfterTestMethod(org.testng.ITestResult)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeAfterTestMethod" is-config="true" duration-ms="203" started-at="2017-08-30T11:31:49Z" finished-at="2017-08-30T11:31:50Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=MSGEEAPI002VenuesEdge status=SUCCESS method=EventEngineAPIRegressionTestSuite.MSGEEAPI002VenuesEdge()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeAfterTestMethod -->
+        <test-method status="PASS" signature="executeBeforeTestMethod(org.testng.xml.XmlTest, java.lang.reflect.Method, org.testng.ITestContext)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeBeforeTestMethod" is-config="true" duration-ms="19097" started-at="2017-08-30T11:31:50Z" finished-at="2017-08-30T11:32:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Test: "Default test" verbose:2[parameters:][metagroups:] [included: ][excluded: ]  classes:[XmlClass class=com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite]  packages:] ]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite.MSGEEAPI003VenuesNegative() throws org.apache.http.client.ClientProtocolException,java.io.IOException,java.text.ParseException,java.lang.InterruptedException,java.net.MalformedURLException,java.security.NoSuchAlgorithmException,java.security.KeyManagementException,java.lang.Exception]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@13dff835]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeBeforeTestMethod -->
+        <test-method status="PASS" signature="suiteSetup1()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="suiteSetup1" is-config="true" duration-ms="1" started-at="2017-08-30T11:32:09Z" finished-at="2017-08-30T11:32:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteSetup1 -->
+        <test-method status="PASS" signature="MSGEEAPI003VenuesNegative()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="MSGEEAPI003VenuesNegative" duration-ms="872" started-at="2017-08-30T11:32:09Z" description="Event Engine Test - Venues - NEGATIVE" finished-at="2017-08-30T11:32:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- MSGEEAPI003VenuesNegative -->
+        <test-method status="PASS" signature="executeAfterTestMethod(org.testng.ITestResult)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeAfterTestMethod" is-config="true" duration-ms="208" started-at="2017-08-30T11:32:10Z" finished-at="2017-08-30T11:32:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=MSGEEAPI003VenuesNegative status=SUCCESS method=EventEngineAPIRegressionTestSuite.MSGEEAPI003VenuesNegative()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeAfterTestMethod -->
+        <test-method status="PASS" signature="executeBeforeTestMethod(org.testng.xml.XmlTest, java.lang.reflect.Method, org.testng.ITestContext)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeBeforeTestMethod" is-config="true" duration-ms="7515" started-at="2017-08-30T11:32:10Z" finished-at="2017-08-30T11:32:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Test: "Default test" verbose:2[parameters:][metagroups:] [included: ][excluded: ]  classes:[XmlClass class=com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite]  packages:] ]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite.MSGEEAPI004ArtistsPositive() throws org.apache.http.client.ClientProtocolException,java.io.IOException,java.text.ParseException,java.lang.InterruptedException,java.net.MalformedURLException,java.security.NoSuchAlgorithmException,java.security.KeyManagementException,java.lang.Exception]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@13dff835]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeBeforeTestMethod -->
+        <test-method status="PASS" signature="suiteSetup1()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="suiteSetup1" is-config="true" duration-ms="1" started-at="2017-08-30T11:32:17Z" finished-at="2017-08-30T11:32:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteSetup1 -->
+        <test-method status="PASS" signature="MSGEEAPI004ArtistsPositive()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="MSGEEAPI004ArtistsPositive" duration-ms="3351" started-at="2017-08-30T11:32:17Z" description="Event Engine Test - Artists - POSITIVE" finished-at="2017-08-30T11:32:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- MSGEEAPI004ArtistsPositive -->
+        <test-method status="PASS" signature="executeAfterTestMethod(org.testng.ITestResult)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeAfterTestMethod" is-config="true" duration-ms="201" started-at="2017-08-30T11:32:21Z" finished-at="2017-08-30T11:32:21Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=MSGEEAPI004ArtistsPositive status=SUCCESS method=EventEngineAPIRegressionTestSuite.MSGEEAPI004ArtistsPositive()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeAfterTestMethod -->
+        <test-method status="PASS" signature="executeBeforeTestMethod(org.testng.xml.XmlTest, java.lang.reflect.Method, org.testng.ITestContext)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeBeforeTestMethod" is-config="true" duration-ms="8228" started-at="2017-08-30T11:32:21Z" finished-at="2017-08-30T11:32:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Test: "Default test" verbose:2[parameters:][metagroups:] [included: ][excluded: ]  classes:[XmlClass class=com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite]  packages:] ]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite.MSGEEAPI005ArtistsEdge() throws org.apache.http.client.ClientProtocolException,java.io.IOException,java.text.ParseException,java.lang.InterruptedException,java.net.MalformedURLException,java.security.NoSuchAlgorithmException,java.security.KeyManagementException,java.lang.Exception]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@13dff835]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeBeforeTestMethod -->
+        <test-method status="PASS" signature="suiteSetup1()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="suiteSetup1" is-config="true" duration-ms="1" started-at="2017-08-30T11:32:29Z" finished-at="2017-08-30T11:32:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteSetup1 -->
+        <test-method status="PASS" signature="MSGEEAPI005ArtistsEdge()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="MSGEEAPI005ArtistsEdge" duration-ms="2755" started-at="2017-08-30T11:32:29Z" description="Event Engine Test - Artists - EDGE" finished-at="2017-08-30T11:32:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- MSGEEAPI005ArtistsEdge -->
+        <test-method status="PASS" signature="executeAfterTestMethod(org.testng.ITestResult)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeAfterTestMethod" is-config="true" duration-ms="232" started-at="2017-08-30T11:32:32Z" finished-at="2017-08-30T11:32:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=MSGEEAPI005ArtistsEdge status=SUCCESS method=EventEngineAPIRegressionTestSuite.MSGEEAPI005ArtistsEdge()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeAfterTestMethod -->
+        <test-method status="PASS" signature="executeBeforeTestMethod(org.testng.xml.XmlTest, java.lang.reflect.Method, org.testng.ITestContext)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeBeforeTestMethod" is-config="true" duration-ms="10898" started-at="2017-08-30T11:32:32Z" finished-at="2017-08-30T11:32:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Test: "Default test" verbose:2[parameters:][metagroups:] [included: ][excluded: ]  classes:[XmlClass class=com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite]  packages:] ]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite.MSGEEAPI006ArtistsNegative() throws org.apache.http.client.ClientProtocolException,java.io.IOException,java.text.ParseException,java.lang.InterruptedException,java.net.MalformedURLException,java.security.NoSuchAlgorithmException,java.security.KeyManagementException,java.lang.Exception]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@13dff835]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeBeforeTestMethod -->
+        <test-method status="PASS" signature="suiteSetup1()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="suiteSetup1" is-config="true" duration-ms="1" started-at="2017-08-30T11:32:43Z" finished-at="2017-08-30T11:32:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteSetup1 -->
+        <test-method status="PASS" signature="MSGEEAPI006ArtistsNegative()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="MSGEEAPI006ArtistsNegative" duration-ms="399" started-at="2017-08-30T11:32:43Z" description="Event Engine Test - Venues - NEGATIVE" finished-at="2017-08-30T11:32:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- MSGEEAPI006ArtistsNegative -->
+        <test-method status="PASS" signature="executeAfterTestMethod(org.testng.ITestResult)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeAfterTestMethod" is-config="true" duration-ms="198" started-at="2017-08-30T11:32:43Z" finished-at="2017-08-30T11:32:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=MSGEEAPI006ArtistsNegative status=SUCCESS method=EventEngineAPIRegressionTestSuite.MSGEEAPI006ArtistsNegative()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeAfterTestMethod -->
+        <test-method status="PASS" signature="executeBeforeTestMethod(org.testng.xml.XmlTest, java.lang.reflect.Method, org.testng.ITestContext)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeBeforeTestMethod" is-config="true" duration-ms="11082" started-at="2017-08-30T11:32:44Z" finished-at="2017-08-30T11:32:55Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Test: "Default test" verbose:2[parameters:][metagroups:] [included: ][excluded: ]  classes:[XmlClass class=com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite]  packages:] ]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite.MSGEEAPI007DatesPositive() throws org.apache.http.client.ClientProtocolException,java.io.IOException,java.text.ParseException,java.lang.InterruptedException,java.net.MalformedURLException,java.security.NoSuchAlgorithmException,java.security.KeyManagementException,java.lang.Exception]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@13dff835]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeBeforeTestMethod -->
+        <test-method status="PASS" signature="suiteSetup1()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="suiteSetup1" is-config="true" duration-ms="0" started-at="2017-08-30T11:32:55Z" finished-at="2017-08-30T11:32:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteSetup1 -->
+        <test-method status="PASS" signature="MSGEEAPI007DatesPositive()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="MSGEEAPI007DatesPositive" duration-ms="2238" started-at="2017-08-30T11:32:55Z" description="Event Engine Test - Dates - POSITIVE" finished-at="2017-08-30T11:32:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- MSGEEAPI007DatesPositive -->
+        <test-method status="PASS" signature="executeAfterTestMethod(org.testng.ITestResult)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeAfterTestMethod" is-config="true" duration-ms="275" started-at="2017-08-30T11:32:57Z" finished-at="2017-08-30T11:32:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=MSGEEAPI007DatesPositive status=SUCCESS method=EventEngineAPIRegressionTestSuite.MSGEEAPI007DatesPositive()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeAfterTestMethod -->
+        <test-method status="PASS" signature="executeBeforeTestMethod(org.testng.xml.XmlTest, java.lang.reflect.Method, org.testng.ITestContext)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeBeforeTestMethod" is-config="true" duration-ms="9921" started-at="2017-08-30T11:32:57Z" finished-at="2017-08-30T11:33:07Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Test: "Default test" verbose:2[parameters:][metagroups:] [included: ][excluded: ]  classes:[XmlClass class=com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite]  packages:] ]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite.MSGEEAPI008DatesEdge() throws org.apache.http.client.ClientProtocolException,java.io.IOException,java.text.ParseException,java.lang.InterruptedException,java.net.MalformedURLException,java.security.NoSuchAlgorithmException,java.security.KeyManagementException,java.lang.Exception]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@13dff835]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeBeforeTestMethod -->
+        <test-method status="PASS" signature="suiteSetup1()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="suiteSetup1" is-config="true" duration-ms="1" started-at="2017-08-30T11:33:07Z" finished-at="2017-08-30T11:33:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteSetup1 -->
+        <test-method status="PASS" signature="MSGEEAPI008DatesEdge()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="MSGEEAPI008DatesEdge" duration-ms="2297" started-at="2017-08-30T11:33:07Z" description="Event Engine Test - Dates - EDGE" finished-at="2017-08-30T11:33:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- MSGEEAPI008DatesEdge -->
+        <test-method status="PASS" signature="executeAfterTestMethod(org.testng.ITestResult)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeAfterTestMethod" is-config="true" duration-ms="206" started-at="2017-08-30T11:33:09Z" finished-at="2017-08-30T11:33:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=MSGEEAPI008DatesEdge status=SUCCESS method=EventEngineAPIRegressionTestSuite.MSGEEAPI008DatesEdge()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeAfterTestMethod -->
+        <test-method status="PASS" signature="executeBeforeTestMethod(org.testng.xml.XmlTest, java.lang.reflect.Method, org.testng.ITestContext)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeBeforeTestMethod" is-config="true" duration-ms="16608" started-at="2017-08-30T11:33:10Z" finished-at="2017-08-30T11:33:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Test: "Default test" verbose:2[parameters:][metagroups:] [included: ][excluded: ]  classes:[XmlClass class=com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite]  packages:] ]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite.MSGEEAPI009DatesNegative() throws org.apache.http.client.ClientProtocolException,java.io.IOException,java.text.ParseException,java.lang.InterruptedException,java.net.MalformedURLException,java.security.NoSuchAlgorithmException,java.security.KeyManagementException,java.lang.Exception]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@13dff835]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeBeforeTestMethod -->
+        <test-method status="PASS" signature="suiteSetup1()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="suiteSetup1" is-config="true" duration-ms="0" started-at="2017-08-30T11:33:26Z" finished-at="2017-08-30T11:33:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteSetup1 -->
+        <test-method status="PASS" signature="MSGEEAPI009DatesNegative()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="MSGEEAPI009DatesNegative" duration-ms="2047" started-at="2017-08-30T11:33:26Z" description="Event Engine Test - Dates - NEGATIVE" finished-at="2017-08-30T11:33:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- MSGEEAPI009DatesNegative -->
+        <test-method status="PASS" signature="executeAfterTestMethod(org.testng.ITestResult)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeAfterTestMethod" is-config="true" duration-ms="216" started-at="2017-08-30T11:33:28Z" finished-at="2017-08-30T11:33:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=MSGEEAPI009DatesNegative status=SUCCESS method=EventEngineAPIRegressionTestSuite.MSGEEAPI009DatesNegative()[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeAfterTestMethod -->
+        <test-method status="PASS" signature="executeAfterTestClass(org.testng.ITestContext)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeAfterTestClass" is-config="true" duration-ms="0" started-at="2017-08-30T11:33:29Z" finished-at="2017-08-30T11:33:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@13dff835]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeAfterTestClass -->
+        <test-method status="PASS" signature="executeAfterTestSuite(org.testng.ITestContext)[pri:0, instance:com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite@5af97850]" name="executeAfterTestSuite" is-config="true" duration-ms="98" started-at="2017-08-30T11:33:29Z" finished-at="2017-08-30T11:33:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@13dff835]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeAfterTestSuite -->
+      </class> <!-- com.msg.qa.tests.MSGAPI.EventEngine.EventEngineAPIRegressionTestSuite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

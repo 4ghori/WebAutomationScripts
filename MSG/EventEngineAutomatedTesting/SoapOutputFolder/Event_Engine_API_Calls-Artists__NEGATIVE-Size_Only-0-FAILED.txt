@@ -1,0 +1,49 @@
+Status: FAILED
+Time Taken: 100
+Size: 173
+Timestamp: Wed Aug 30 11:32:43 EDT 2017
+TestStep: Size Only
+
+----------------- Messages ------------------------------
+[Valid HTTP Status Codes] Response status code:400 is not in acceptable list of status codes
+[Contains] Missing token [pagination":"Provide valid value for size] in Response
+
+----------------- Properties ------------------------------
+HTTP Version: HTTP/1.1
+Endpoint: http://qa-api.msg.com
+Method: GET
+StatusCode: 400
+URL: http://qa-api.msg.com/v2/artists?size=-1
+
+---------------- Request ---------------------------
+Authorization: [Bearer 976a98bca2332872bbb279819b645af7, Bearer 976a98bca2332872bbb279819b645af7]
+Connection: [Keep-Alive]
+User-Agent: [Apache-HttpClient/4.4 (Java 1.5 minimum; Java/1.8.0_121)]
+Host: [qa-api.msg.com]
+Accept-Encoding: [gzip,deflate]
+
+GET http://qa-api.msg.com/v2/artists?size=-1 HTTP/1.1
+Accept-Encoding: gzip,deflate
+Authorization: Bearer 976a98bca2332872bbb279819b645af7
+Authorization: Bearer 976a98bca2332872bbb279819b645af7
+Host: qa-api.msg.com
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.4 (Java 1.5 minimum; Java/1.8.0_121)
+
+
+---------------- Response --------------------------
+Server: [nginx/1.10.3]
+Connection: [close]
+#status#: [HTTP/1.1 400 Bad Request]
+Content-Length: [173]
+Date: [Wed, 30 Aug 2017 15:32:43 GMT]
+Content-Type: [text/html]
+
+<html>
+<head><title>400 Bad Request</title></head>
+<body bgcolor="white">
+<center><h1>400 Bad Request</h1></center>
+<hr><center>nginx/1.10.3</center>
+</body>
+</html>
+
