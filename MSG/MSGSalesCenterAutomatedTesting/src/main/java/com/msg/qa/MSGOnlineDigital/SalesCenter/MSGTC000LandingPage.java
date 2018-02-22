@@ -185,12 +185,12 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 			 */
 			WebElement msgLogo = getWebElement(driver,
 					selectors, "MSGTC000LandingPageLogo");
-			List<WebElement> graphicTickets = getWebElements(driver,
+/*			List<WebElement> graphicTickets = getWebElements(driver,
 					selectors, "MSGTC000LandingPageMegaNavEventsTicketsFindTicketsGraphicOnes");
 			List<WebElement> exploreTickets = getWebElements(driver,
 					selectors, "MSGTC000LandingPageMegaNavEventsTicketsFindTicketsExplore");
 			WebElement msgEventTickets = getWebElement(driver,
-					selectors, "MSGTC000LandingPageMegaNavEventsTickets");
+					selectors, "MSGTC000LandingPageMegaNavEventsTickets");*/
 
 			if (msgLogo.isDisplayed())
 			{
@@ -350,7 +350,10 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 					/**
 					 * search with Blank string.
 					 */
-					msgSearchAfterInput.clear();
+					/**
+					 * Commented after it caused Dumps in Safari Browser on 02/14/2018.
+					 */
+/*					msgSearchAfterInput.clear();
 					msgSearchAfterInput.sendKeys("");
 					LOGGER.info(this.myDriverParameters+" - MSG.com Landing Page:  Test Step-3: BLANK is entered in search.");
 					msgSearchAfterClick.click();
@@ -358,7 +361,7 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 					
 					WebElement msgSearchBlankMessage = getWebElement(driver,
 							selectors, "MSGTC000LandingPageMegaNavSearchAfterClickNoEventMessage");
-					LOGGER.info(this.myDriverParameters+" - MSG.com Landing Page:  Test Step-3: Message - "+msgSearchBlankMessage.getText()+" for BLANK search string.");					
+					LOGGER.info(this.myDriverParameters+" - MSG.com Landing Page:  Test Step-3: Message - "+msgSearchBlankMessage.getText()+" for BLANK search string.");	*/				
 				
 					/**
 					 * search with a Lengthy String.

@@ -94,7 +94,7 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 	/**
 	 * Step-1. We are navigable to MSG.com Search Page.
 	 */
-	@Test(description = "Are we on MSG .com Landing Page?", groups = {
+	@Test(description = "Are we on MSG .com Search Page?", groups = {
 			"MSGLandingPage", "smoke", "fullintegration"})
 	public boolean MSGTC015SearchPageTS001() {
 
@@ -103,7 +103,7 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 		try {
 			// Verify the Title of the page.
 			LOGGER.info(this.myDriverParameters+
-					" - ******************* MSG.com Landing  Page URL to be tested is: "
+					" - ******************* MSG.com Search  Page URL to be tested is: "
 							+ this.URL + " ******************* ");
 			driver.navigate().to(this.URL);
 			if (isIOSPlatform(((RemoteWebDriver) driver).getCapabilities()
@@ -130,9 +130,10 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 	}
 
 	/**
-	 * Step-2. Verify the Hero Section: TOP ADVERTISEMENT
+	 * CAUTION:
+	 * Enable this step only if you are willing to run tests in search for ALL ARTISTS.
 	 */
-	@Test(description = "MSG.com - Search Page. Top Advertisement", groups = {
+	@Test(description = "MSG.com - Search Page. Verify Results for All Artists", groups = {
 			"MSGLandingPage", "fullintegration"})
 	public boolean MSGTC015SearchPageTS002() {
 
@@ -140,30 +141,41 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 		String testNumber = "2";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
-				+ ": Top Advertisement.");
-		try {
+				+ ": Verify all artist.");
+		
+		/**
+		 * Read the file for list of all artists.
+		 */
+		
+		String myArtist;
+		
+		/**
+		 * Iterate over the artists one by one and check following:
+		 * 1. If there are events for Artist.
+		 * 2. If YES:
+		 * 2.1: If events have images displayed.
+		 * 2.1.1: If NO - Log as Error. 
+		 * 2.2: If Events have date/time displayed.
+		 * 2.2.1: Store all date/time in one Array.
+		 * 2.2.2: If event date/time are duplicated. Log as Error.
+		 * 2.3: If Events have Location displayed.
+		 * 2.3.1: If NO - Log as Error.   
+		 */
+		
+		
+		
+		
+/*		try {
 
-			/*
-			 * Set required WebElements to be used in test scenario
-			 */
-			// The Ad takes a long time to load
-			sleep(15);
-			WebElement heroTopAd = getWebElement(driver, selectors,
-					"MSGTC015SearchPageHeroTopAd");
-			isMyTestPassed = true;
-
-			waitForElement(driver, heroTopAd, 15);
-			// Validates the Hero Top Ad
-			return isMyTestPassed = testVisual(heroTopAd, pageName,
-					"Hero Top Ad", testNumber, isMyTestPassed, this.myDriverParameters);
+		
 
 		} catch (Exception e) {
 			LOGGER.error(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
 					+ ": Hero Top Ad is missing!!");
 			LOGGER.error(this.myDriverParameters+" - "+e);
 			return isMyTestPassed = false;
-		}
-
+		}*/
+		return isMyTestPassed;
 	}
 	
 	/**
