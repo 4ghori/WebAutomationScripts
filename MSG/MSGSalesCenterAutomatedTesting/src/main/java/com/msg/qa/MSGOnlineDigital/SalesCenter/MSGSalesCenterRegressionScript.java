@@ -208,50 +208,103 @@ public class MSGSalesCenterRegressionScript extends Thread {
 		List<String> myPageClassMethodsToBeExecuted = myTestCasesWithSteps
 				.get("MSGTC000LandingPage");
 		List<String> PageClassStepsExecutionStatus = new ArrayList<String>();
-		System.out.println("THIS IS THE OVERALL MYTESTCASESWITHSTEPS: "
-				+ myTestCasesWithSteps);
-		System.out.println("THIS IS MYTESTCASESWITHSTEPS WITH THE GET: "
-				+ myTestCasesWithSteps.get("MSGTC000LandingPage"));
-		System.out.println("THIS IS myPageClassMethodsToBeExecuted: "
-				+ myPageClassMethodsToBeExecuted);
 
 		/**
-		 * 1. Check if we are on MSG.com landing Page.
+		 * 1. Check if we are on MSG.com landing Page - LANDING PAGE NAVIGATION 
 		 */
 
 		if (myPageClassMethodsToBeExecuted.contains("TS001"))
 			isMyTestPassed = myMSGLandingPage.MSGTC000LandingPageTS001();
 		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
-
+		/**
+		 * 2. TOP ADVERTISEMENT IS DISPLAYED
+		 */	
 		if (myPageClassMethodsToBeExecuted.contains("TS002"))
 			isMyTestPassed = myMSGLandingPage.MSGTC000LandingPageTS002();
 		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
 
 		/**
-		 * Enabled the new test case for Search - 01/18/18
+		 * 3. GLOBAL NAV
 		 */
 		if (myPageClassMethodsToBeExecuted.contains("TS003"))
 			isMyTestPassed = myMSGLandingPage.MSGTC000LandingPageTS003();
 		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
 		
+		/**
+		 * 4. IMAGE SLIDER UNDER MEGA NAV
+		 */
 		if (myPageClassMethodsToBeExecuted.contains("TS004"))
 			isMyTestPassed = myMSGLandingPage.MSGTC000LandingPageTS004();
 		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
 
+		/**
+		 * 5. EVENT SEARCH OPTIONS
+		 */
 		if (myPageClassMethodsToBeExecuted.contains("TS005"))
 			isMyTestPassed = myMSGLandingPage.MSGTC000LandingPageTS005();
 		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
 
+		/**
+		 * 6. SECTION BETWEEN EVENT SEARCH AND HAPPENING
+		 */
 		if (myPageClassMethodsToBeExecuted.contains("TS006"))
 			isMyTestPassed = myMSGLandingPage.MSGTC000LandingPageTS006();
 		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
 
+		/**
+		 * 7. HAPPENING IN ALL CITIES
+		 */
 		if (myPageClassMethodsToBeExecuted.contains("TS007"))
 			isMyTestPassed = myMSGLandingPage.MSGTC000LandingPageTS007();
 		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
 
+		/**
+		 * 8. ADVERTISEMENT BETWEEN IMAGE CAROUSEL AND SLICK SLIDER
+		 */
 		if (myPageClassMethodsToBeExecuted.contains("TS008"))
 			isMyTestPassed = myMSGLandingPage.MSGTC000LandingPageTS008();
+		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
+		
+		/**
+		 * 9. ON SALE SOON
+		 */
+		if (myPageClassMethodsToBeExecuted.contains("TS009"))
+			isMyTestPassed = myMSGLandingPage.MSGTC000LandingPageTS009();
+		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
+		
+		/**
+		 * 10. SLICK SLIDER WITH LARGE IMAGES
+		 */
+		if (myPageClassMethodsToBeExecuted.contains("TS010"))
+			isMyTestPassed = myMSGLandingPage.MSGTC000LandingPageTS010();
+		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
+		
+		/**
+		 * 11. VENUES VERIFICATION
+		 */
+		if (myPageClassMethodsToBeExecuted.contains("TS011"))
+			isMyTestPassed = myMSGLandingPage.MSGTC000LandingPageTS011();
+		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
+		
+		/**
+		 * 12. ADVERTISEMENT BETWEEN VENUES AND FOOTER
+		 */
+		if (myPageClassMethodsToBeExecuted.contains("TS012"))
+			isMyTestPassed = myMSGLandingPage.MSGTC000LandingPageTS012();
+		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
+		
+		/**
+		 * 13. EMAIL CAPTURE
+		 */
+		if (myPageClassMethodsToBeExecuted.contains("TS013"))
+			isMyTestPassed = myMSGLandingPage.MSGTC000LandingPageTS013();
+		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
+		
+		/**
+		 * 14. FOOTER VALIDATIONS
+		 */
+		if (myPageClassMethodsToBeExecuted.contains("TS014"))
+			isMyTestPassed = myMSGLandingPage.MSGTC000LandingPageTS014();
 		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
 		
 		/**
@@ -476,14 +529,6 @@ public class MSGSalesCenterRegressionScript extends Thread {
 		List<String> myPageClassMethodsToBeExecuted = myTestCasesWithSteps
 				.get("MSGSalesCenterTC003CorporateEntertainmentPage");
 		List<String> PageClassStepsExecutionStatus = new ArrayList<String>();
-
-		System.out.println("THIS IS THE OVERALL MYTESTCASESWITHSTEPS: "
-				+ myTestCasesWithSteps);
-		System.out.println("THIS IS MYTESTCASESWITHSTEPS WITH THE GET: "
-				+ myTestCasesWithSteps
-						.get("MSGSalesCenterTC003CorporateEntertainmentPage"));
-		System.out.println("THIS IS myPageClassMethodsToBeExecuted: "
-				+ myPageClassMethodsToBeExecuted);
 
 		if (myPageClassMethodsToBeExecuted.contains("TS001"))
 			isMyTestPassed = myMSGSalesCenterTC003CorporateEntertainmentPage

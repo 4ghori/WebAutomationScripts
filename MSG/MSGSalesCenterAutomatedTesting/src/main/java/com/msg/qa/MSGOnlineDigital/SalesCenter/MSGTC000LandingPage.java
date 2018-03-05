@@ -167,9 +167,9 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 	}
 	
 	/**
-	 * Step-3: MEGA NAV Verifications.
+	 * Step-3: Global NAV Verifications.
 	 */
-	@Test(description = "MSG.com - Landing Page. Mega Nav Tests", groups = {
+	@Test(description = "MSG.com - Landing Page. Global Nav Tests", groups = {
 			"MSGLandingPage", "fullintegration"})
 	public boolean MSGTC000LandingPageTS003() 
 	{
@@ -177,7 +177,7 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 		String testNumber = "3";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
-				+ ": Mega Nav Tests.");
+				+ ": Global Nav Tests.");
 		try {
 
 			/*
@@ -391,7 +391,7 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 			isMyTestPassed = true;
 			} catch (Exception e) {
 			LOGGER.error(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
-					+ ": Mega nav error!!");
+					+ ": Global Nav error!!");
 			LOGGER.error(this.myDriverParameters+" - "+e);
 			return isMyTestPassed = false;
 		}			
@@ -400,7 +400,7 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 	
 	
 	/**
-	 * Step-4. Verify the Hero Section: EVENT SLIDER
+	 * Step-4. Verify the Hero Section: IMAGE SLIDER UNDER GLOBAL NAV
 	 */
 	@Test(description = "MSG.com - Landing Page. Hero Slider Tests", groups = {
 			"MSGLandingPage", "fullintegration"})
@@ -594,14 +594,38 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 	}
 
 	/**
-	 * Step-6. Verify the Hero Section: FEATURE EVENT
+	 * Step-6: Verify the Hero Section: SECTION BETWEEN EVENT SEARCH AND HAPPENING (NEW STEP NEED TO BE CODED)
 	 */
 	@Test(description = "MSG.com - Landing Page. Featured Events Tests", groups = {
 			"MSGLandingPage", "fullintegration"})
 	public boolean MSGTC000LandingPageTS006() {
 
 		String pageName = "MSG.com - Landing Page";
-		String testNumber = "6";
+		String testNumber = "7";
+
+		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
+				+ ": Featured Events Tests.");
+		try {
+		
+		} catch (Exception e) {
+			LOGGER.error(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
+					+ ": Featured Events, Elements are missing!!");
+			LOGGER.error(this.myDriverParameters+" - "+e);
+			return isMyTestPassed = false;
+		}
+		return isMyTestPassed;
+
+	}
+	
+	/**
+	 * Step-7. Verify the Hero Section: FEATURE EVENT (HAPPENING IN ALL CITIES)
+	 */
+	@Test(description = "MSG.com - Landing Page. Featured Events Tests", groups = {
+			"MSGLandingPage", "fullintegration"})
+	public boolean MSGTC000LandingPageTS007() {
+
+		String pageName = "MSG.com - Landing Page";
+		String testNumber = "7";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
 				+ ": Featured Events Tests.");
@@ -690,15 +714,13 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 			isMyTestPassed = testVisual(featuredEventsFilterCity, pageName,
 					"Featured Events Filter Cities Option: New York",
 					testNumber, isMyTestPassed, this.myDriverParameters);
-			
-			
+						
 			featuredEventsFilterCity = getWebElement(driver, selectors,
 					"FeaturedEventsFilterCities", "Chicago");
 			isMyTestPassed = testVisual(featuredEventsFilterCity, pageName,
 					"Featured Events Filter Cities Option: Chicago", testNumber,
 					isMyTestPassed, this.myDriverParameters);
-			
-			
+					
 			featuredEventsFilterCity = getWebElement(driver, selectors,
 					"FeaturedEventsFilterCities", "Inglewood");
 			isMyTestPassed = testVisual(featuredEventsFilterCity, pageName,
@@ -747,7 +769,7 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 								driver, selectors,
 								"FeaturedEventsSlideBuyButton",
 								Integer.toString(countCards));
-
+						
 						// Test the visible cards content
 						isMyTestPassed = testVisual(featuredEventsSlideImage,
 								pageName, "Featured Events Slide Image",
@@ -784,14 +806,14 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 	}
 
 	/**
-	 * Step-7. Verify the Hero Section: FEATURE ADVERTISEMENT
+	 * Step-8. Verify the Hero Section: FEATURE ADVERTISEMENT
 	 */
 	@Test(description = "MSG.com - Landing Page. Feature Event Advertisement", groups = {
 			"MSGLandingPage", "fullintegration"})
-	public boolean MSGTC000LandingPageTS007() {
+	public boolean MSGTC000LandingPageTS008() {
 
 		String pageName = "MSG.com - Landing Page";
-		String testNumber = "7";
+		String testNumber = "8";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
 				+ ": Feature Event Advertisement.");
@@ -818,16 +840,52 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 		}
 
 	}
+	
+	/**
+	 * Step-9. Verify the Hero Section: ON SALE SOON  (NEW STEP NEED TO BE CODED)
+	 */
+	@Test(description = "MSG.com - Landing Page. On Sale Soon", groups = {
+			"MSGLandingPage", "fullintegration"})
+	public boolean MSGTC000LandingPageTS009() {
+
+		String pageName = "MSG.com - Landing Page";
+		String testNumber = "9";
+
+		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
+				+ ": On Sale Soon.");
+		try {
+
+			/*
+			 * Set required WebElements to be used in test scenario
+			 */
+			sleep(15);
+			WebElement featureEventsAd = getWebElement(driver, selectors,
+					"FeatureEventsAd");
+			isMyTestPassed = true;
+
+			waitForElement(driver, featureEventsAd, 15);
+			// Validates the Feature Event Ad
+			return isMyTestPassed = testVisual(featureEventsAd, pageName,
+					"Feature Event Ad", testNumber, isMyTestPassed, this.myDriverParameters);
+
+		} catch (Exception e) {
+			LOGGER.error(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
+					+ ": Feature Event Ad is missing!!");
+			LOGGER.error(this.myDriverParameters+" - "+e);
+			return isMyTestPassed = false;
+		}
+
+	}
 
 	/**
-	 * Step-8. Verify the Hero Section: SLICK SLIDER
+	 * Step-10. Verify the Hero Section: SLICK SLIDER WITH LARGE IMAGES
 	 */
 	@Test(description = "MSG.com - Landing Page. Slick Slider", groups = {
 			"MSGLandingPage", "fullintegration"})
-	public boolean MSGTC000LandingPageTS008() {
+	public boolean MSGTC000LandingPageTS010() {
 
 		String pageName = "MSG.com - Landing Page";
-		String testNumber = "8";
+		String testNumber = "10";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
 				+ ": Slick Slider.");
@@ -922,14 +980,14 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 	}
 
 	/**
-	 * Step-9. Verify the Hero Section: VENUES LIST
+	 * Step-11. Verify the Hero Section: VENUES LIST
 	 */
 	@Test(description = "MSG.com - Landing Page. Venues List", groups = {
 			"MSGLandingPage", "fullintegration"})
-	public boolean MSGTC000LandingPageTS009() {
+	public boolean MSGTC000LandingPageTS011() {
 
 		String pageName = "MSG.com - Landing Page";
-		String testNumber = "9";
+		String testNumber = "11";
 
 		LOGGER.info(this.myDriverParameters+" - "+
 				pageName + " Page: Test Step-" + testNumber + ": Venues List.");
@@ -996,14 +1054,14 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 	}
 
 	/**
-	 * Step-10. Verify the Hero Section: BOTTOM ADVERTISEMENT
+	 * Step-12. Verify the Hero Section: BOTTOM ADVERTISEMENT
 	 */
 	@Test(description = "MSG.com - Landing Page. Footer", groups = {
 			"MSGLandingPage", "fullintegration"})
-	public boolean MSGTC000LandingPageTS010() {
+	public boolean MSGTC000LandingPageTS012() {
 
 		String pageName = "MSG.com - Landing Page";
-		String testNumber = "10";
+		String testNumber = "12";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber + ": Footer.");
 		try {
@@ -1094,6 +1152,24 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 	}
 
 	/**
+	 * Step-13: EMAIL CAPTURE - NEW STEP NEED TO BE CODED.
+	 * @return
+	 */
+	public boolean MSGTC000LandingPageTS013() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	/**
+	 * Step-14: Footer Validations - NEW STEP NEED TO BE CODED.
+	 * @return
+	 */
+	public boolean MSGTC000LandingPageTS014() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	/**
 	 * Visual Test Enablement for Landing Page.
 	 * @author Rachit Kumar Rastogi
 	 * @return
@@ -1101,7 +1177,7 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 	public boolean executeVisualTest()
 	{
 		String pageName = "MSG.com - Landing Page";
-		String testNumber = "11";
+		String testNumber = "15";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber + ": Visual Test.");
 		
