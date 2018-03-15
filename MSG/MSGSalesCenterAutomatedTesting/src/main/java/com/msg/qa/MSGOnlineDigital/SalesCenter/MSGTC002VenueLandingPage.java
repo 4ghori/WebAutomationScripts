@@ -96,14 +96,310 @@ public class MSGTC002VenueLandingPage {
 	}
 
 	/**
-	 * Step-4. Verify the Hero Section: EVENT SEARCH OPTIONS
+	 * Step-2. Verify Global Nav
 	 */
 	@Test(description = " - MSG.com Venue Landing - Madison Square Garden Page. Hero Filters Tests", groups = {
 			"MSGVenueLandingPage", "fullintegration"})
 	public boolean MSGTC002VenueLandingPageTS002() {
 
 		LOGGER.info(this.myDriverParameters
-				+ "MSG.com - Venue Landing Page: Test Step-2: Verify Hero Section.");
+				+ "MSG.com - Venue Landing Page: Test Step-2: Verify Global Nav.");
+		try {
+			/*
+			 * Set required WebElements to be used in test scenario
+			 */
+			WebElement globalNAV = getWebElement(driver, selectors,
+					"MSGTC000LandingPageGlobalNAV");
+			WebElement globalNAVEventAndTickets = getWebElement(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVEventAndTickets");
+			WebElement globalNAVVenueControl = getWebElement(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVVenueControl");
+			
+			
+			List<WebElement> globalNAVVenueTitle = getWebElements(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVVenueTitle");
+			List<WebElement>  globalNAVVenueLoc = getWebElements(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVVenueLoc");
+			List<WebElement>  globalNAVVenueImage = getWebElements(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVVenueImage");
+			List<WebElement>  globalNAVLearnMore = getWebElements(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVVenueLearnMore");
+			WebElement globalNAVBrandsControl = getWebElement(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVBrandsControl");
+			List<WebElement>  globalNAVBrandsImages = getWebElements(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVBrandsImages");
+			List<WebElement>  globalNAVBrandsTitles = getWebElements(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVBrandsTitles");
+			WebElement globalNAVBlogControl = getWebElement(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVBlogControl");
+			WebElement globalNAVBlogLink = getWebElement(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVBlogLink");		
+			
+			if (globalNAV.isDisplayed())
+			{
+				LOGGER.info(this.myDriverParameters
+						+ "MSG.com - Venue Landing Page: Test Step-2: Global NAV is displayed.");
+				if(globalNAVEventAndTickets.isDisplayed())
+				{
+					LOGGER.info(this.myDriverParameters
+							+ "MSG.com - Venue Landing Page: Test Step-2: Global Nav -> Events and Tickets Option is present.");	
+					isMyTestPassed = true;
+				}
+				
+				/**
+				 * Check for Venues and options inside the venue.
+				 */
+				if(globalNAVVenueControl.isDisplayed())
+				{
+					LOGGER.info(this.myDriverParameters
+							+ "MSG.com - Venue Landing Page: Test Step-2: Global Nav -> Our Venues Option is present.");	
+					if(!globalNAVVenueTitle.isEmpty() && !globalNAVVenueLoc.isEmpty() && !globalNAVVenueImage.isEmpty())
+					{
+					for(int i=0; i<globalNAVVenueTitle.size();i++)
+						{
+						/**
+						 * This section will verify if ALT attribute of image will have a valid image path.
+						 */
+							if(MSGOnlineDigitalReusableFunctionalities.verifyIfLinkIsWorking(globalNAVVenueImage.get(i).getAttribute("src").toString())!=404)
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Venue Landing Page: Test Step-2: Global Nav -> Our Venues Option has "+globalNAVVenueTitle.get(i).getText().toString()+" venue at location: "+globalNAVVenueLoc.get(i).getText().toString()+" with a valid Thumbnail.");		
+								isMyTestPassed = true;
+							}
+							else
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Venue Landing Page: Test Step-2: Global Nav -> Our Venues Option has "+globalNAVVenueTitle.get(i).getText().toString()+" venue at location: "+globalNAVVenueLoc.get(i).getText().toString()+" doesn't have a valid Thumbnail!!");
+								isMyTestPassed = false;
+								break;
+							}
+							i++;
+						}
+					}
+				}
+				
+				/**
+				 * Check for Our Brands and Brands inside Our Brands section.
+				 */
+				if(globalNAVBrandsControl.isDisplayed())
+				{
+					LOGGER.info(this.myDriverParameters
+							+ "MSG.com - Venue Landing Page: Test Step-2: Global Nav -> Our Brands Option is present.");	
+					if(!globalNAVBrandsTitles.isEmpty() && !globalNAVBrandsImages.isEmpty())
+					{
+					for(int i=0; i<globalNAVBrandsTitles.size();i++)
+						{
+						/**
+						 * This section will verify if ALT attribute of image will have a valid image path.
+						 */
+							if(MSGOnlineDigitalReusableFunctionalities.verifyIfLinkIsWorking(globalNAVBrandsImages.get(i).getAttribute("src").toString())!=404)
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Venue Landing Page: Test Step-2: Global Nav -> Our Brands Option has "+globalNAVBrandsTitles.get(i).getText().toString()+" Brand with a valid Thumbnail.");		
+								isMyTestPassed = true;
+							}
+							else
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Venue Landing Page: Test Step-2: Global Nav -> Our Brands Option has "+globalNAVBrandsTitles.get(i).getText().toString()+" Brand doesn't have a valid Thumbnail!!");
+								isMyTestPassed = false;
+								break;
+							}
+							i++;
+						}
+					}
+				}
+				
+				/**
+				 * Official Blog Link is present.
+				 */
+				if(globalNAVBlogLink.isDisplayed())
+				{
+					LOGGER.info(this.myDriverParameters
+							+ "MSG.com - Venue Landing Page: Test Step-2: Global Nav -> Official Blog Option is present.");	
+					isMyTestPassed = true;
+				}
+				
+			}			
+		return isMyTestPassed;
+
+	} catch (Exception e) {
+		LOGGER.info(this.myDriverParameters
+				+ " - MSG.com Venue Landing - Madison Square Garden Page: Test Step-2: MSG Global Nav is missing!!");
+		LOGGER.error(this.myDriverParameters + " - " + e);
+		return false;
+	}
+
+}
+
+	/**
+	 * Step-3. Verify Secondary Nav
+	 */
+	@Test(description = " - MSG.com Venue Landing - Madison Square Garden Page. Secondary Nav Tests", groups = {
+			"MSGVenueLandingPage", "fullintegration"})
+	public boolean MSGTC002VenueLandingPageTS003() {
+
+		LOGGER.info(this.myDriverParameters
+				+ "MSG.com - Venue Landing Page: Test Step-3: Verify Secondary Nav.");
+		try {
+			
+			/*
+			 * Set required WebElements to be used in test scenario
+			 */
+			WebElement secNAV = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAV");
+			WebElement secNAVBuyTickets = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAVBuyTickets");			
+			WebElement secNAVBuyTicketsLink = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAVBuyTicketsLink");	
+			List<WebElement> secNAVBuyTicketsOptions = getWebElements(driver, selectors,
+					"MSGTC000LandingPageSecNAVBuyTicketsOptions");	
+			WebElement secNAVBuyTicketsExploreAllOptions = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAVBuyTicketsExploreAllEvents");	
+			WebElement secNAVPremHosp = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAVPremHosp");	
+			WebElement secNAVPremHospLink = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAVPremHospLink");	
+			WebElement secNAVPanYourVisit = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAVPlanYourVisit");	
+			WebElement secNAVPlanYourVisitLink = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAVPlanYourVisitLink");	
+			List<WebElement> secNAVPlanYourVisitOptions = getWebElements(driver, selectors,
+					"MSGTC000LandingPageSecNAVPlanYourVisitOptions");	
+			WebElement secNAVVenueRentals = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAVVenueRentals");	
+			
+			if (secNAV.isDisplayed())
+			{
+				LOGGER.info(this.myDriverParameters
+						+ "MSG.com - Venue Landing Page: Test Step-3: Secondary NAV is displayed.");
+				
+				/**
+				 * Check for Venues and options inside the venue.
+				 */
+				if(secNAVBuyTicketsLink.isDisplayed())
+				{
+					secNAVBuyTicketsLink.click();
+					
+					LOGGER.info(this.myDriverParameters
+							+ "MSG.com - Venue Landing Page: Test Step-3: Secondary Nav -> Buy Tickets Option is present.");	
+					if(!secNAVBuyTicketsOptions.isEmpty())
+					{
+					for(int i=0; i<secNAVBuyTicketsOptions.size();i++)
+						{
+						/**
+						 * This section will verify if ALT attribute of image will have a valid image path.
+						 */
+							if(MSGOnlineDigitalReusableFunctionalities.verifyIfLinkIsWorking(secNAVBuyTicketsOptions.get(i).getAttribute("href").toString())!=404)
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Venue Landing Page: Test Step-2: Secondary Nav -> Buy Tickets Option "+secNAVBuyTicketsOptions.get(i).getText().toString()+" has a valid Link.");		
+								isMyTestPassed = true;
+							}
+							else
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Venue Landing Page: Test Step-2: Secondary Nav -> Buy Tickets Option "+secNAVBuyTicketsOptions.get(i).getText().toString()+" has a invalid Link!!");		
+								isMyTestPassed = false;
+								break;
+							}
+							i++;
+						}
+					}
+					
+					if(secNAVBuyTicketsExploreAllOptions.isDisplayed())
+					{
+						/**
+						 * This section will verify if ALT attribute of image will have a valid image path.
+						 */
+							if(MSGOnlineDigitalReusableFunctionalities.verifyIfLinkIsWorking(secNAVBuyTicketsExploreAllOptions.getAttribute("href").toString())!=404)
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Venue Landing Page: Test Step-2: Secondary Nav -> Buy Tickets -> Explore All Events Option "+secNAVBuyTicketsExploreAllOptions.getText().toString()+" has a valid Link.");		
+								isMyTestPassed = true;
+							}
+							else
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Venue Landing Page: Test Step-2: Secondary Nav -> Buy Tickets -> Explore All Events Option "+secNAVBuyTicketsExploreAllOptions.getText().toString()+" has a invalid Link!!");		
+								isMyTestPassed = false;
+							}
+					}
+				}
+				
+				/**
+				 * Check if Premium Hospitality options is displayed.
+				 */
+				if(secNAVPremHospLink.isDisplayed())
+				{
+					LOGGER.info(this.myDriverParameters
+							+ "MSG.com - Venue Landing Page: Test Step-2: Secondary Nav -> Premium Hospitality Option is present.");	
+					isMyTestPassed = true;
+				}			
+				
+				/**
+				 * Check for Plan Your Visit section.
+				 */
+				if(secNAVPlanYourVisitLink.isDisplayed())
+				{
+					LOGGER.info(this.myDriverParameters
+							+ "MSG.com - Venue Landing Page: Test Step-2: Secondary Nav -> Plan Your Visit Option is present.");	
+					if(!secNAVPlanYourVisitOptions.isEmpty())
+					{
+					for(int i=0; i<secNAVPlanYourVisitOptions.size();i++)
+						{
+						/**
+						 * This section will verify if ALT attribute of image will have a valid image path.
+						 */
+							if(MSGOnlineDigitalReusableFunctionalities.verifyIfLinkIsWorking(secNAVPlanYourVisitOptions.get(i).getAttribute("href").toString())!=404)
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Venue Landing Page: Test Step-2: Secondary Nav -> Plan your Visit Option "+secNAVPlanYourVisitOptions.get(i).getText().toString()+" has a valid Link.");		
+								isMyTestPassed = true;
+							}
+							else
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Venue Landing Page: Test Step-2: Secondary Nav -> Plan your Visit Option "+secNAVPlanYourVisitOptions.get(i).getText().toString()+" has a invalid Link!!");		
+								isMyTestPassed = false;
+								break;
+							}
+							i++;
+						}
+					}
+				}
+				
+				/**
+				 * Venue rentals Link is present.
+				 */
+				if(secNAVVenueRentals.isDisplayed())
+				{
+					LOGGER.info(this.myDriverParameters
+							+ "MSG.com - Venue Landing Page: Test Step-2: Secondary Nav -> Venue Rentals Option is present.");	
+					isMyTestPassed = true;
+				}
+				
+			}			
+		return isMyTestPassed;
+
+	} catch (Exception e) {
+		LOGGER.info(this.myDriverParameters
+				+ " - MSG.com Venue Landing - Madison Square Garden Page: Test Step-3: MSG Secondary Nav is missing!!");
+		LOGGER.error(this.myDriverParameters + " - " + e);
+		return false;
+	}
+
+}
+	
+	/**
+	 * Step-4. Verify the Hero Section: EVENT SEARCH OPTIONS
+	 */
+	@Test(description = " - MSG.com Venue Landing - Madison Square Garden Page. Hero Filters Tests", groups = {
+			"MSGVenueLandingPage", "fullintegration"})
+	public boolean MSGTC002VenueLandingPageTS004() {
+
+		LOGGER.info(this.myDriverParameters
+				+ "MSG.com - Venue Landing Page: Test Step-4: Verify Hero Section.");
 		try {
 
 			/*
@@ -127,7 +423,7 @@ public class MSGTC002VenueLandingPage {
 			// Validates the Hero Title
 			if (heroTitle.isDisplayed() & heroTitle.getText() != null) {
 				LOGGER.info(this.myDriverParameters
-						+ " - MSG.com Venue Landing - Madison Square Garden Page: Test Step-2: Hero Title is present");
+						+ " - MSG.com Venue Landing - Madison Square Garden Page: Test Step-4: Hero Title is present");
 			} else {
 				isMyTestPassed = false;
 			}
@@ -136,7 +432,7 @@ public class MSGTC002VenueLandingPage {
 			if (heroFiltersType.isDisplayed()
 					& heroFiltersType.getText() != null) {
 				LOGGER.info(this.myDriverParameters
-						+ " - MSG.com Venue Landing - Madison Square Garden Page: Test Step-2: Hero Filter Type is present");
+						+ " - MSG.com Venue Landing - Madison Square Garden Page: Test Step-4: Hero Filter Type is present");
 			} else {
 				isMyTestPassed = false;
 			}
@@ -145,7 +441,7 @@ public class MSGTC002VenueLandingPage {
 			if (heroFiltersDate.isDisplayed()
 					& heroFiltersDate.getText() != null) {
 				LOGGER.info(this.myDriverParameters
-						+ " - MSG.com Venue Landing - Madison Square Garden Page: Test Step-2: Hero Filter Date is present");
+						+ " - MSG.com Venue Landing - Madison Square Garden Page: Test Step-4: Hero Filter Date is present");
 			} else {
 				isMyTestPassed = false;
 			}
@@ -154,7 +450,7 @@ public class MSGTC002VenueLandingPage {
 			if (heroFindEventsButton.isDisplayed()
 					& heroFindEventsButton.getText() != null) {
 				LOGGER.info(this.myDriverParameters
-						+ " - MSG.com Venue Landing - Madison Square Garden Page: Test Step-2: Hero Find Events Button is present");
+						+ " - MSG.com Venue Landing - Madison Square Garden Page: Test Step-4: Hero Find Events Button is present");
 			} else {
 				isMyTestPassed = false;
 			}
@@ -163,19 +459,23 @@ public class MSGTC002VenueLandingPage {
 
 		} catch (Exception e) {
 			LOGGER.info(this.myDriverParameters
-					+ " - MSG.com Venue Landing - Madison Square Garden Page: Test Step-2: MSG Hero Elements are missing!!");
+					+ " - MSG.com Venue Landing - Madison Square Garden Page: Test Step-4: MSG Hero Elements are missing!!");
 			LOGGER.error(this.myDriverParameters + " - " + e);
 			return false;
 		}
 
 	}
 
+	/**
+	 * Step-5: Venue landing - Generic Content Tests.
+	 * @return
+	 */
 	@Test(description = "MSG.com - Venue landing. Generic Content Tests", groups = {
 			"MSGVenueLanding", "fullintegration"})
-	public boolean MSGTC002VenueLandingPageTS003() {
+	public boolean MSGTC002VenueLandingPageTS005() {
 
 		String pageName = "MSG.com - Venue landing Page";
-		String testNumber = "3";
+		String testNumber = "5";
 
 		LOGGER.info(
 				this.myDriverParameters + " - " + pageName + " Page: Test Step-"
@@ -292,11 +592,15 @@ public class MSGTC002VenueLandingPage {
 
 	}
 
+	/**
+	 * Step-6: Venue Landing Page - Event grid Tests
+	 * @return
+	 */
 	@Test(description = "MSG.com - Venue Landing. Event Grid Test", groups = {
 			"MSGEventDetailsPage", "fullintegration"})
-	public boolean MSGTC002VenueLandingPageTS004() {
+	public boolean MSGTC002VenueLandingPageTS006() {
 		String pageName = "MSG.com - Venue landing Page";
-		String testNumber = "4";
+		String testNumber = "6";
 		LOGGER.info(this.myDriverParameters + " - " + pageName
 				+ " Page: Test Step-" + testNumber + ": Event Grid Section.");
 		try {
@@ -380,13 +684,17 @@ public class MSGTC002VenueLandingPage {
 			return isMyTestPassed = false;
 		}
 	}
-
+	
+/**
+ * Step-7: Plan head Tests.
+ * @return
+ */
 	@Test(description = "MSG.com - Venue landing. Plan Ahead Tests", groups = {
 			"MSGVenueLandingPage", "fullintegration"})
-	public boolean MSGTC002VenueLandingPageTS005() {
+	public boolean MSGTC002VenueLandingPageTS007() {
 
 		String pageName = "MSG.com - Venue Landing Page";
-		String testNumber = "5";
+		String testNumber = "7";
 
 		LOGGER.info(this.myDriverParameters + " - " + pageName
 				+ " Page: Test Step-" + testNumber + ": Plan Ahead Section.");
@@ -463,15 +771,18 @@ public class MSGTC002VenueLandingPage {
 			LOGGER.error(this.myDriverParameters + " - " + e);
 			return isMyTestPassed = false;
 		}
-
 	}
-
+	
+/**
+ * step-8: Visual Link Tests
+ * @return
+ */
 	@Test(description = "MSG.com - Venue landing. Visual links title Tests", groups = {
 			"MSGVenueLanding", "fullintegration"})
-	public boolean MSGTC002VenueLandingPageTS006() {
+	public boolean MSGTC002VenueLandingPageTS008() {
 
 		String pageName = "MSG.com - Venue landing Page";
-		String testNumber = "6";
+		String testNumber = "8";
 
 		LOGGER.info(this.myDriverParameters + " - " + pageName
 				+ " Page: Test Step-" + testNumber + ": Visual links section.");
@@ -531,22 +842,46 @@ public class MSGTC002VenueLandingPage {
 		}
 
 	}
-
+	
 	/**
-	 * Visual Test Enablement for Venue Landing Page.
-	 * 
+	 * Step-9: Venue Landing Page Delta Features: Email Capture
+	 * @date 02/28/2018
 	 * @author Rachit Kumar Rastogi
 	 * @return
 	 */
-	public boolean executeVisualTest() {
-		String pageName = "MSG.com - Venue Landing Page";
-		String testNumber = "7";
+	public boolean MSGTC002VenueLandingPageTS009() {
+		String pageName = "MSG.com - Venue landing Page";
+		String testNumber = "9";
 
 		LOGGER.info(this.myDriverParameters + " - " + pageName
-				+ " Page: Test Step-" + testNumber + ": Visual Test.");
+				+ " Page: Test Step-" + testNumber + ": Email Capture");
 
-		return MSGOnlineDigitalReusableFunctionalities
-				.executeVisualTest(driver);
+		try {
+
+	
+			return isMyTestPassed;
+
+		} catch (Exception e) {
+			LOGGER.error(this.myDriverParameters + " - " + pageName
+					+ " Page: Test Step-" + testNumber
+					+ ": MSG.com - Venue landing Page. EMail Capture Elements are missing!!");
+			LOGGER.error(this.myDriverParameters + " - " + e);
+			return isMyTestPassed = false;
+		}
 	}
+	
+	/**
+	 * Steip-10: Visual Test Enablement for Landing Page.
+	 * @author Rachit Kumar Rastogi
+	 * @return
+	 */
+	public boolean executeVisualTest()
+	{
+		String pageName = "MSG.com - Landing Page";
+		String testNumber = "10";
 
+		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber + ": Visual Test.");
+		
+		return MSGOnlineDigitalReusableFunctionalities.executeVisualTest(driver);
+	}
 }

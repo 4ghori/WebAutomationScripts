@@ -1272,9 +1272,16 @@ public class MSGOnlineDigitalReusableFunctionalities
 	}
 
 	public static String getCurrentMonthName() {
-		String[] monthName = {"January", "February", "March", "April", "May",
+		/**
+		 * Change made by Rachit Kumar Rastogi on 02/27/2018.
+		 * No events are returned in FEBRUARY Last week so starting the Month wirh Feb.
+		 */
+/*		String[] monthName = {"January", "February", "March", "April", "May",
 				"June", "July", "August", "September", "October", "November",
-				"December"};
+				"December"};*/
+		String[] monthName = {"February", "March", "April", "May",
+				"June", "July", "August", "September", "October", "November",
+				"December", "January"};
 		return monthName[Calendar.getInstance().get(Calendar.MONTH)];
 	}
 

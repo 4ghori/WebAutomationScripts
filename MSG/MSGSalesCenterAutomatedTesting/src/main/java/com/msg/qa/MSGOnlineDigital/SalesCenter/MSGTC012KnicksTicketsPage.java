@@ -20,6 +20,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.msg.qa.common.MSGOnlineDigitalReusableFunctionalities;
+import com.msg.qa.common.MSGOnlineDigitalSeleniumActions;
 
 /**
  * @author Carlos Campino
@@ -36,6 +37,9 @@ public class MSGTC012KnicksTicketsPage {
 	Map<String, String[]> selectors = new HashMap<String, String[]>();
 	String myDriverParameters = null;
 
+	//=== RS Code - 
+	MSGOnlineDigitalSeleniumActions mySelenium;
+	
 	/**
 	 * Default Constructor
 	 */
@@ -59,6 +63,9 @@ public class MSGTC012KnicksTicketsPage {
 		this.isMyTestPassed = isMyTestPassed;
 		this.selectors = selectors;
 		this.myDriverParameters = driverParameters;
+		
+		//=== RS Code - 
+		mySelenium = new MSGOnlineDigitalSeleniumActions(driver,null,null);
 	}
 
 	/**
@@ -66,23 +73,70 @@ public class MSGTC012KnicksTicketsPage {
 	 */
 	@Test(description = "MSG.com kNicks Tickets Tests", groups = {
 			"MSGKnicksTicketsPage", "smoke", "fullintegration"})
-	public boolean MSGTC012KnicksTicketsPageTS001() {
-		try {
-			// Verify the Title of the page.
-			LOGGER.info(this.myDriverParameters+this.myDriverParameters+
-					" - ******************* MSG Knicks Tickets Page URL to be tested is: "
-							+ this.URL + " ******************* ");
+	public boolean MSGTC012KnicksTicketsPageTS001() {		
+		try 
+		{
+			
+			//######## Step >>> 1 : Verify the Title of the page. ##############
+			LOGGER.info(this.myDriverParameters+this.myDriverParameters +
+					    " - ******************* MSG Knicks Tickets Page URL to be tested is: "+ 
+					    this.URL + " ******************* ");
 			driver.navigate().to(this.URL);
 			isMyTestPassed = true;
-			LOGGER.info(this.myDriverParameters+
-					" - MSG Knicks Tickets: Test Step-1: We are on MSG Knicks Tickets Page.");
+			LOGGER.info(this.myDriverParameters+" - MSG Knicks Tickets: Test Step-1: We are on MSG Knicks Tickets Page.");
 			sleep(15);
-		} catch (WebDriverException e) {
+		} 
+		catch (WebDriverException e) 
+		{
 			isMyTestPassed = false;
-			LOGGER.error(
-					" - MSG Knicks Tickets: Test Step-1: We are not on MSG Knicks Tickets Page!!");
+			LOGGER.error(" - MSG Knicks Tickets: Test Step-1: We are not on MSG Knicks Tickets Page!!");
 		}
+		
+		
+		try  //===>> RS Code Added for Release 4.0 Global & Secondary Navigation Bar <<======
+		{
+			//######## Step >>> 2 : Validating MSG Company Logo Displayed ##############
+			LOGGER.info(this.myDriverParameters+" - MSG Knicks Tickets: Test Step-1: Validating MSG Company Logo Displayed..");
+			WebElement tCPageHasCopanyLogo = getWebElement(driver, selectors,"MSGTC000LandingPageLogo");
+			if(!mySelenium.ValidateElementExist(tCPageHasCopanyLogo))
+			{
+				isMyTestPassed = false;
+				LOGGER.info(this.myDriverParameters+" - MSG Knicks Tickets: Test Step-1: ^^ Failed ^^ ");
+			}
+			
+			//######## Step >>> 3 : Top Advertisement .. ############## 
+			
+			//######## Step >>> 4 : Validating Global Navigation is Exist.. ############## 
+			LOGGER.info(this.myDriverParameters+" - MSG Knicks Tickets: Test Step-1: Validating Global Nav is Exist..");
+			WebElement MSGTC000LandingPageGlobalNAV = getWebElement(driver, selectors,"MSGTC002VenueLandingPageGlobalNAV");
+			if(!mySelenium.ValidateElementExist(MSGTC000LandingPageGlobalNAV))
+			{
+				isMyTestPassed = false;
+				LOGGER.info(this.myDriverParameters+" - MSG Knicks Tickets: Test Step-1: ^^ Failed ^^ ");
+			}
+			
+			//######## Step >>> 5 : Validating Secondary Navigation is Exist.. ############## 
+			LOGGER.info(this.myDriverParameters+" - MSG Knicks Tickets: Test Step-1: Validating Secondary Nav is Exist..");
+			WebElement MSGTC000LandingPageSecNAV = getWebElement(driver, selectors,"MSGTC002VenueLandingPageSecNAV");
+			if(!mySelenium.ValidateElementExist(MSGTC000LandingPageSecNAV))
+			{
+				isMyTestPassed = false;
+				LOGGER.info(this.myDriverParameters+" - MSG Knicks Tickets: Test Step-1: ^^ Failed ^^ ");
+			}
+		}
+		catch(Exception e)
+		{
+			LOGGER.info(this.myDriverParameters+" - MSG Ticket Central - Knicks Page: Test Step-1: ^^ Failed ^^ ");
+			LOGGER.error(this.myDriverParameters+" - "+e);
+			return isMyTestPassed = false;
+		}
+		
 		return isMyTestPassed;
+	
+		
+		
+		
+		
 	}
 
 	/**

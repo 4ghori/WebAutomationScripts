@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.msg.qa.common.MSGOnlineDigitalReusableFunctionalities;
+import com.msg.qa.common.MSGOnlineDigitalSeleniumActions;
 
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +29,9 @@ public class MSGSalesCenterTC010VenueToursPage {
 	Boolean isMyTestPassed;
 	Map<String, String[]> selectors = new HashMap<String, String[]>();
 	String myDriverParameters = null;
+	
+	//=== RS Code - 
+	MSGOnlineDigitalSeleniumActions mySelenium;
 	
 	/**
 	 * Default Constructor
@@ -52,6 +56,9 @@ public class MSGSalesCenterTC010VenueToursPage {
 		this.isMyTestPassed = isMyTestPassed;
 		this.selectors = selectors;
 		this.myDriverParameters = driverParameters;
+		
+		//=== RS Code - 
+		mySelenium = new MSGOnlineDigitalSeleniumActions(driver,null,null);
 	}
 
 	/**
@@ -74,6 +81,51 @@ public class MSGSalesCenterTC010VenueToursPage {
 			LOGGER.info(this.myDriverParameters+
 					"MSG.com Universal Template - Venue Tours Page: Test Step-1: We are not on MSG.como Universal Template - Venue Tours Page!!");
 		}
+		
+		
+		
+		try  //===>> RS Code Added for Release 4.0 Global & Secondary Navigation Bar <<======
+		{
+			//######## Step >>> 2 : Validating MSG Company Logo Displayed ##############
+			LOGGER.info(this.myDriverParameters+" - MSG Venue Tours Page: Test Step-1: Validating MSG Company Logo Displayed..");
+			WebElement tCPageHasCopanyLogo = getWebElement(driver, selectors,"MSGTC000LandingPageLogo");
+			if(!mySelenium.ValidateElementExist(tCPageHasCopanyLogo))
+			{
+				isMyTestPassed = false;
+				LOGGER.info(this.myDriverParameters+" - MSG Venue Tours Page: Test Step-1: ^^ Failed ^^ ");
+			}
+			
+			//######## Step >>> 3 : Top Advertisement .. ############## 
+			
+			//######## Step >>> 4 : Validating Global Navigation is Exist.. ############## 
+			LOGGER.info(this.myDriverParameters+" - MSG Venue Tours Page: Test Step-1: Validating Global Nav is Exist..");
+			WebElement MSGTC000LandingPageGlobalNAV = getWebElement(driver, selectors,"MSGTC002VenueLandingPageGlobalNAV");
+			if(!mySelenium.ValidateElementExist(MSGTC000LandingPageGlobalNAV))
+			{
+				isMyTestPassed = false;
+				LOGGER.info(this.myDriverParameters+" - MSG Venue Tours Page: Test Step-1: ^^ Failed ^^ ");
+			}
+			
+			//######## Step >>> 5 : Validating Secondary Navigation is Exist.. ############## 
+			/*LOGGER.info(this.myDriverParameters+" - MSG Venue Tours Page: Test Step-1: Validating Secondary Nav is Exist..");
+			WebElement MSGTC000LandingPageSecNAV = getWebElement(driver, selectors,"MSGTC002VenueLandingPageSecNAV");
+			if(!mySelenium.ValidateElementExist(MSGTC000LandingPageSecNAV))
+			{
+				isMyTestPassed = false;
+				LOGGER.info(this.myDriverParameters+" - MSG Venue Tours Page: Test Step-1: ^^ Failed ^^ ");
+			}*/
+			
+		}
+		catch(Exception e)
+		{
+			LOGGER.info(this.myDriverParameters+" - MSG Venue Tours Page: Test Step-1: ^^ Failed ^^ ");
+			LOGGER.error(this.myDriverParameters+" - "+e);
+			return isMyTestPassed = false;
+		}
+		
+		
+		
+		
 		return isMyTestPassed;
 	}
 

@@ -186,11 +186,11 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 			WebElement msgLogo = getWebElement(driver,
 					selectors, "MSGTC000LandingPageLogo");
 /*			List<WebElement> graphicTickets = getWebElements(driver,
-					selectors, "MSGTC000LandingPageMegaNavEventsTicketsFindTicketsGraphicOnes");
+					selectors, "MSGTC000LandingPageGlobalNAVEventsTicketsFindTicketsGraphicOnes");
 			List<WebElement> exploreTickets = getWebElements(driver,
-					selectors, "MSGTC000LandingPageMegaNavEventsTicketsFindTicketsExplore");
+					selectors, "MSGTC000LandingPageGlobalNAVEventsTicketsFindTicketsExplore");
 			WebElement msgEventTickets = getWebElement(driver,
-					selectors, "MSGTC000LandingPageMegaNavEventsTickets");*/
+					selectors, "MSGTC000LandingPageGlobalNAVEventsTickets");*/
 
 			if (msgLogo.isDisplayed())
 			{
@@ -222,13 +222,13 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 			 * By Rachit Kumar Rastogi On 01/19/2018
 			 */
 			WebElement msgSearch = getWebElement(driver,
-					selectors, "MSGTC000LandingPageMegaNavSearch");
+					selectors, "MSGTC000LandingPageGlobalNAVSearch");
 			WebElement msgSearchInput = getWebElement(driver,
-					selectors, "MSGTC000LandingPageMegaNavSearchInput");
+					selectors, "MSGTC000LandingPageGlobalNAVSearchInput");
 			WebElement msgSearchClose = getWebElement(driver,
-					selectors, "MSGTC000LandingPageMegaNavSearchClose");
+					selectors, "MSGTC000LandingPageGlobalNAVSearchClose");
 			WebElement msgSearchClick = getWebElement(driver,
-					selectors, "MSGTC000LandingPageMegaNavSearchClick");
+					selectors, "MSGTC000LandingPageGlobalNAVSearchClick");
 			
 			/**
 			 * Perform Open/Close in Search in Nav
@@ -261,9 +261,9 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 					Thread.sleep(2000);
 					
 					WebElement msgSearchTotalEventCount = getWebElement(driver,
-							selectors, "MSGTC000LandingPageMegaNavSearchAfterClickTotalEventCount");
+							selectors, "MSGTC000LandingPageGlobalNAVSearchAfterClickTotalEventCount");
 					List<WebElement> msgSearchIndivEventCount = getWebElements(driver,
-									selectors, "MSGTC000LandingPageMegaNavSearchAfterClickIndivEventCount");
+									selectors, "MSGTC000LandingPageGlobalNAVSearchAfterClickIndivEventCount");
 					
 					LOGGER.info(this.myDriverParameters+" - MSG.com Landing Page:  Test Step-3: Total "+msgSearchTotalEventCount.getText()+" search string.");
 					
@@ -278,9 +278,9 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 					}
 					
 					WebElement msgSearchAfterInput = getWebElement(driver,
-							selectors, "MSGTC000LandingPageMegaNavSearchAfterInput");
+							selectors, "MSGTC000LandingPageGlobalNAVSearchAfterInput");
 					WebElement msgSearchAfterClick = getWebElement(driver,
-							selectors, "MSGTC000LandingPageMegaNavSearchAfterClick");
+							selectors, "MSGTC000LandingPageGlobalNAVSearchAfterClick");
 					
 					/**
 					 * Partial search string Madison Square.
@@ -292,9 +292,9 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 					Thread.sleep(2000);
 					
 					msgSearchTotalEventCount = getWebElement(driver,
-							selectors, "MSGTC000LandingPageMegaNavSearchAfterClickTotalEventCount");
+							selectors, "MSGTC000LandingPageGlobalNAVSearchAfterClickTotalEventCount");
 					msgSearchIndivEventCount = getWebElements(driver,
-									selectors, "MSGTC000LandingPageMegaNavSearchAfterClickIndivEventCount");
+									selectors, "MSGTC000LandingPageGlobalNAVSearchAfterClickIndivEventCount");
 					
 					LOGGER.info(this.myDriverParameters+" - MSG.com Landing Page:  Test Step-3: Total "+msgSearchTotalEventCount.getText()+" search string.");
 					
@@ -319,9 +319,9 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 					Thread.sleep(2000);		
 					
 					msgSearchTotalEventCount = getWebElement(driver,
-							selectors, "MSGTC000LandingPageMegaNavSearchAfterClickTotalEventCount");
+							selectors, "MSGTC000LandingPageGlobalNAVSearchAfterClickTotalEventCount");
 					msgSearchIndivEventCount = getWebElements(driver,
-									selectors, "MSGTC000LandingPageMegaNavSearchAfterClickIndivEventCount");
+									selectors, "MSGTC000LandingPageGlobalNAVSearchAfterClickIndivEventCount");
 					
 					LOGGER.info(this.myDriverParameters+" - MSG.com Landing Page:  Test Step-3: Total "+msgSearchTotalEventCount.getText()+" search string.");
 					count = 0;
@@ -344,7 +344,7 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 					Thread.sleep(2000);
 					
 					WebElement msgSearchNoEventMessage = getWebElement(driver,
-							selectors, "MSGTC000LandingPageMegaNavSearchAfterClickNoEventMessage");
+							selectors, "MSGTC000LandingPageGlobalNAVSearchAfterClickNoEventMessage");
 					LOGGER.info(this.myDriverParameters+" - MSG.com Landing Page:  Test Step-3: Message - "+msgSearchNoEventMessage.getText()+" for Not_a_Valid_String search string.");					
 					
 					/**
@@ -360,7 +360,7 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 					Thread.sleep(2000);
 					
 					WebElement msgSearchBlankMessage = getWebElement(driver,
-							selectors, "MSGTC000LandingPageMegaNavSearchAfterClickNoEventMessage");
+							selectors, "MSGTC000LandingPageGlobalNAVSearchAfterClickNoEventMessage");
 					LOGGER.info(this.myDriverParameters+" - MSG.com Landing Page:  Test Step-3: Message - "+msgSearchBlankMessage.getText()+" for BLANK search string.");	*/				
 				
 					/**
@@ -372,9 +372,9 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 					msgSearchAfterClick.click();
 					Thread.sleep(2000);
 					msgSearchTotalEventCount = getWebElement(driver,
-							selectors, "MSGTC000LandingPageMegaNavSearchAfterClickTotalEventCount");
+							selectors, "MSGTC000LandingPageGlobalNAVSearchAfterClickTotalEventCount");
 					msgSearchIndivEventCount = getWebElements(driver,
-									selectors, "MSGTC000LandingPageMegaNavSearchAfterClickIndivEventCount");
+									selectors, "MSGTC000LandingPageGlobalNAVSearchAfterClickIndivEventCount");
 					LOGGER.info(this.myDriverParameters+" - MSG.com Landing Page:  Test Step-3: Total "+msgSearchTotalEventCount.getText()+" search string.");					
 					count = 0;
 					for(WebElement myEle: msgSearchIndivEventCount)
@@ -1097,7 +1097,12 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 					"About");
 			scrollToElement(driver, footerLink);
 
-			isMyTestPassed = testLinkNewTab(footerLink, 1,
+			
+			/**
+			 * Changing the Wait Time to 5 seconds as New Tab URL resolve is taking time.
+			 * Change done by: Rachit Kumar Rastogi on 03/14/2018
+			 */
+			isMyTestPassed = testLinkNewTab(footerLink, 5,
 					"http://www.themadisonsquaregardencompany.com/our-company.html",
 					pageName, "Footer Link About", testNumber, isMyTestPassed,
 					driver);
@@ -1105,7 +1110,7 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 			footerLink = getWebElement(driver, selectors, "FooterLink", "News");
 			scrollToElement(driver, footerLink);
 
-			isMyTestPassed = testLinkNewTab(footerLink, 1,
+			isMyTestPassed = testLinkNewTab(footerLink, 5,
 					"http://www.themadisonsquaregardencompany.com/news.html",
 					pageName, "Footer Link About", testNumber, isMyTestPassed,
 					driver);
@@ -1113,7 +1118,7 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 			footerLink = getWebElement(driver, selectors, "FooterLink",
 					"Careers");
 			scrollToElement(driver, footerLink);
-			isMyTestPassed = testLinkNewTab(footerLink, 1,
+			isMyTestPassed = testLinkNewTab(footerLink, 5,
 					"http://www.themadisonsquaregardencompany.com/careers.html",
 					pageName, "Footer Link About", testNumber, isMyTestPassed,
 					driver);
@@ -1121,14 +1126,14 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 			footerLink = getWebElement(driver, selectors, "FooterLink",
 					"Investors");
 			scrollToElement(driver, footerLink);
-			isMyTestPassed = testLinkNewTab(footerLink, 1,
+			isMyTestPassed = testLinkNewTab(footerLink, 5,
 					"http://investor.msg.com/", pageName, "Footer Link About",
 					testNumber, isMyTestPassed, driver);
 
 			footerLink = getWebElement(driver, selectors, "FooterLink",
 					"Ad Choices");
 			scrollToElement(driver, footerLink);
-			isMyTestPassed = testLinkNewTab(footerLink, 1,
+			isMyTestPassed = testLinkNewTab(footerLink, 5,
 					"http://www.themadisonsquaregardencompany.com/privacy.html#adchoices",
 					pageName, "Footer Link About", testNumber, isMyTestPassed,
 					driver);
@@ -1136,7 +1141,7 @@ LOGGER.info(" >>>> CAPABILITIES::"+capabilities.getPlatform().toString());
 			footerLink = getWebElement(driver, selectors, "FooterLink",
 					"Email Sign Up");
 			scrollToElement(driver, footerLink);
-			isMyTestPassed = testLinkNewTab(footerLink, 1,
+			isMyTestPassed = testLinkNewTab(footerLink, 5,
 					"https://www.msg.com/email-sign-up", pageName,
 					"Footer Link About", testNumber, isMyTestPassed, driver);
 

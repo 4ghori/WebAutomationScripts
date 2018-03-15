@@ -72,51 +72,86 @@ public class MSGSalesCenterURLs {
 				break;
 		}
 
-		myURLs.put("MSGTC000LandingPage",
-				String.format("https://%s.msg.com", host));
-		myURLs.put("MSGTC002VenueLandingPage", String
-				.format("https://%s.msg.com/madison-square-garden", host));
-
-		myURLs.put("MSGSalesCenterTC001VenueRentalsPage",
-				String.format("https://%s.msg.com/venue-rentals", host));
-		myURLs.put("MSGSalesCenterTC003CorporateEntertainmentPage", String
-				.format("https://%s.msg.com/corporate-entertainment", host));
-		myURLs.put("MSGSalesCenterTC004PremiumHospitalityPage",
-				String.format("https://%s.msg.com/premium-hospitality", host));
-		myURLs.put("MSGSalesCenterTC005GroupOutingsPage",
-				String.format("https://%s.msg.com/group-outings", host));
+		/**
+		 * URL-0: msg.com Landing Page.
+		 */
+		myURLs.put("MSGTC000LandingPage",String.format("https://%s.msg.com", host));
+		
+		/**
+		 * URL-1: msg.com Venue Rentals Page. 
+		 */
+		myURLs.put("MSGSalesCenterTC001VenueRentalsPage",String.format("https://%s.msg.com/venue-rentals", host));
+		
+		/**
+		 * URL-2: msg.com Venue Landing Page.
+		 */
+		myURLs.put("MSGTC002VenueLandingPage", String.format("https://%s.msg.com/madison-square-garden", host));
+		
+		/**
+		 * URL-3: Corporate Entertainment Page.
+		 */
+		myURLs.put("MSGSalesCenterTC003CorporateEntertainmentPage", String.format("https://%s.msg.com/corporate-entertainment", host));
+		
+		/**
+		 * URL-4: Premium Hospitality Page.
+		 */
+		myURLs.put("MSGSalesCenterTC004PremiumHospitalityPage",String.format("https://%s.msg.com/premium-hospitality", host));
+		
+		/**
+		 * URL-5: Group Outings Page.
+		 */
+		myURLs.put("MSGSalesCenterTC005GroupOutingsPage",String.format("https://%s.msg.com/group-outings", host));
 
 		/**
-		 * New URLs added for handling L3 pages and Knicks/Rangers Tickets Added
-		 * by: Rachit kumar Rastogi, date: 09/15/17
+		 * URL-6: Calendar Page.
 		 */
-		myURLs.put("MSGTC006CalendarPage",
-				String.format("https://%s.msg.com/calendar", host));
-		myURLs.put("MSGTC007EventDetailsPage", String.format(
-				"https://%s.msg.com/venue-rentals/madison-square-garden/",
-				host));
-		myURLs.put("MSGSalesCenterTC008VenueRentalsMSGRadioCityPage",
-				String.format(
-						"https://%s.msg.com/venue-rentals/radio-city-music-hall",
-						host));
-		myURLs.put("MSGSalesCenterTC009PremHospMSGEventLevelSuitesPage",
-				String.format(
-						"https://%s.msg.com/premium-hospitality/msg-event-level-suites",
-						host));
-		myURLs.put("MSGSalesCenterTC010VenueToursPage",
-				String.format("https://%s.msg.com/venue-tours/", host));
-		myURLs.put("MSGSalesCenterTC011PremHospMSGKnicksPage", String.format(
-				"https://%s.msg.com/premium-hospitality/msg-knicks-locker-room",
-				host));
-
-		myURLs.put("MSGTC012KnicksTicketsPage",
-				String.format("https://%s.msg.com/knicks-tickets", host));
-		myURLs.put("MSGTC013RangersTicketsPage",
-				String.format("https://%s.msg.com/rangers-tickets", host));
-		myURLs.put("MSGTC014MSGVenueGuidePage",
-				String.format("https://%s.msg.com/madison-square-garden/venue-guide/", host));
-		myURLs.put("MSGTC015SearchPage",
-				String.format("https://%s.msg.com/search?q=", host));
+		myURLs.put("MSGTC006CalendarPage",String.format("https://%s.msg.com/calendar", host));
+		
+		/**
+		 * URL-7: Event Details Page.
+		 */
+		myURLs.put("MSGTC007EventDetailsPage", String.format("https://%s.msg.com/calendar/madison-square-garden-august-2017-billy-joel-in-concert",host));
+		
+		/**
+		 * URL-8: Venue Rentals Radio City Page.
+		 */
+		myURLs.put("MSGSalesCenterTC008VenueRentalsMSGRadioCityPage",String.format("https://%s.msg.com/venue-rentals/radio-city-music-hall",host));
+		
+		/**
+		 * URL-9: Premium Hospitality -> Event Level Suites Page.
+		 */
+		myURLs.put("MSGSalesCenterTC009PremHospMSGEventLevelSuitesPage",String.format("https://%s.msg.com/premium-hospitality/msg-event-level-suites",host));
+		
+		/**
+		 * URL-10: Venue Tours Page.
+		 */
+		myURLs.put("MSGSalesCenterTC010VenueToursPage",String.format("https://%s.msg.com/venue-tours/", host));
+		
+		/**
+		 * URL-11: Premium Hospitality -> Knicks Page.
+		 */
+		myURLs.put("MSGSalesCenterTC011PremHospMSGKnicksPage", String.format("https://%s.msg.com/premium-hospitality/msg-knicks-locker-room",host));
+		
+		/**
+		 * URL-12: Ticket Central -> Knicks Tickets Page.
+		 */
+		myURLs.put("MSGTC012KnicksTicketsPage",String.format("https://%s.msg.com/knicks-tickets", host));
+		
+		/**
+		 * URL-13: Tickets Central -> Rangers Tickets Page.
+		 */
+		myURLs.put("MSGTC013RangersTicketsPage",String.format("https://%s.msg.com/rangers-tickets", host));
+		
+		/**
+		 * URL-14: Venue Guides Page.
+		 */
+		myURLs.put("MSGTC014MSGVenueGuidePage",String.format("https://%s.msg.com/madison-square-garden/venue-guide/", host));
+		
+		/**
+		 * URL-15: Search Page.
+		 */
+		myURLs.put("MSGTC015SearchPage",String.format("https://%s.msg.com/search?q=", host));
+		
 		return myURLs;
 	}
 }

@@ -147,7 +147,7 @@ public class MSGTC006CalendarPage {
 
 	}
 
-	@Test(description = "MSG.com - Calendar Page. Calenendar Booker Date Selector", groups = {
+	@Test(description = "MSG.com - Calendar Page. Calendar Booker Date Selector", groups = {
 			"MSGTC006CalendarPage", "fullintegration"})
 	public boolean MSGTC006CalendarPageTS003() {
 
@@ -155,7 +155,7 @@ public class MSGTC006CalendarPage {
 		String testNumber = "3";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
-				+ ": Calenendar Booker Date Selector Section.");
+				+ ": Calendar Booker Date Selector Section.");
 
 		try {
 
@@ -194,11 +194,16 @@ public class MSGTC006CalendarPage {
 
 			// Verify the right number of events are shown when filtered by
 			// Category
-			driver.navigate().to(this.URL);
+			/**
+			 * Commented on 02/27/2018 By Rachit Kumar Rastogi
+			 * https://ci.msghubvision.com/job/Msg.com_Test_Automation_SmokeTest_Cycle/89/console
+			 */
+/*			driver.navigate().to(this.URL);
 			WebElement bookerTypeFilter = getWebElement(driver, selectors,
 					"MSGTC006CalendarPageBookerTypeFilter");
 			bookerTypeFilter.click();
-			sleep(1);
+			sleep(1);*/
+			
 			WebElement eventTypeList = getWebElement(driver, selectors,
 					"CalendarPageResultsEventTypeList");
 			isMyTestPassed = testVisual(eventTypeList, pageName,
@@ -208,8 +213,7 @@ public class MSGTC006CalendarPage {
 			 * Handling of Event Types
 			 */
 			eventTypeList.click();
-			
-			
+					
 			List<WebElement> eventTypeOption = getWebElements(driver, selectors,
 					"CalendarPageResultsEventTypeOption");
 			LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
@@ -249,22 +253,22 @@ public class MSGTC006CalendarPage {
 
 		} catch (Exception e) {
 			LOGGER.error(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
-					+ ": Calenendar Booker Date Selector Section, Elements are missing!!");
+					+ ": Calendar Booker Date Selector Section, Elements are missing!!");
 			LOGGER.error(this.myDriverParameters+" - "+e);
 			return isMyTestPassed = false;
 		}
 
 	}
 
-	@Test(description = "MSG.com - Calendar Page. Calenendar Events Shown Tests", groups = {
+	@Test(description = "MSG.com - Calendar Page. Calendar Events Shown Tests", groups = {
 			"MSGTC006CalendarPage", "fullintegration"})
 	public boolean MSGTC006CalendarPageTS004() {
 
-		String pageName = "MSG.com - Calendar Page. Calenendar Events Shown";
+		String pageName = "MSG.com - Calendar Page. Calendar Events Shown";
 		String testNumber = "4";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
-				+ ": Calenendar Events.");
+				+ ": Calendar Events.");
 
 		try {
 
@@ -278,7 +282,7 @@ public class MSGTC006CalendarPage {
 			WebElement eventLocationList = getWebElement(driver, selectors,
 					"CalendarPageResultsEventLocationList");
 			WebElement eventLocationOption = getWebElement(driver, selectors,
-					"CalendarPageResultsEventLocationOption", "Inglewood");
+					"CalendarPageResultsEventLocationOption", "New York");
 			eventLocationOption.click();
 			waitOnLoader(driver);
 
@@ -384,11 +388,11 @@ public class MSGTC006CalendarPage {
 
 	}
 
-	@Test(description = "MSG.com - Calendar Page. Calenendar Featured Events Shown Tests", groups = {
+	@Test(description = "MSG.com - Calendar Page. Calendar Featured Events Shown Tests", groups = {
 			"MSGTC006CalendarPage", "fullintegration"})
 	public boolean MSGTC006CalendarPageTS005() {
 
-		String pageName = "MSG.com - Calendar Page. Calenendar Events Shown";
+		String pageName = "MSG.com - Calendar Page. Calendar Events Shown";
 		String testNumber = "5";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
@@ -510,7 +514,7 @@ public class MSGTC006CalendarPage {
 
 	}
 
-	@Test(description = "MSG.com - Calendar Page. Calenendar Booker Date Selector", groups = {
+	@Test(description = "MSG.com - Calendar Page. Dynamic Event Type verification with Hard coded types / REST retrned event Types with Location", groups = {
 			"MSGTC006CalendarPage", "fullintegration"})
 	public boolean MSGTC006CalendarPageTS006() {
 
@@ -518,106 +522,308 @@ public class MSGTC006CalendarPage {
 		String testNumber = "6";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
-				+ ": Calendar Results, Lazy Loading");
+				+ ": Calendar Dynamic Event Type verification");
 
 		try {
 
-			/*
-			 * Set required WebElements to be used in test scenario
-			 */
-			WebElement bookerLocationFilter = getWebElement(driver, selectors,
-					"MSGTC006CalendarPageBookerLocationFilter");
-			WebElement CalendarPageResultsEventCount = getWebElement(driver,
-					selectors, "CalendarPageResultsEventCount");
-			isMyTestPassed = true;
-
-			// Verify the Calendar Event Count is shown
-			isMyTestPassed = testText(CalendarPageResultsEventCount, pageName,
-					"Calendar Event Count", testNumber, isMyTestPassed, this.myDriverParameters);
-
-			// Filters by City
-			bookerLocationFilter.click();
-			sleep(1);
-			WebElement eventLocationList = getWebElement(driver, selectors,
-					"CalendarPageResultsEventLocationList");
-			isMyTestPassed = testVisual(eventLocationList, pageName,
-					"Location Filter List", testNumber, isMyTestPassed, this.myDriverParameters);
-			WebElement eventLocationOption = getWebElement(driver, selectors,
-					"CalendarPageResultsEventLocationOption", "New York");
-			eventLocationOption.click();
-			waitOnLoader(driver);
-			CalendarPageResultsEventCount = getWebElement(driver, selectors,
-					"CalendarPageResultsEventCount");
-			String eventCount = CalendarPageResultsEventCount.getText()
-					.split(" ")[0];
-			LOGGER.info(this.myDriverParameters+" - Total of events loaded: " + eventCount);
-
-			// Shows the initial amount of event cards shown
-			List<WebElement> CalendarPageResultsEventCards = getWebElements(
-					driver, selectors, "CalendarPageResultsEventCards");
-			int initialCardsNumber = CalendarPageResultsEventCards.size();
-			LOGGER.info(this.myDriverParameters+" - Initial size of feature event list: "
-					+ initialCardsNumber);
-
-			// Scrolls to the end of the list to trigger the lazy loading
-			scrollToElement(driver,
-					CalendarPageResultsEventCards.get(initialCardsNumber - 1));
-			waitOnLoader(driver);
-			sleep(2);
-
-			// Gets the new number of loaded events
-			CalendarPageResultsEventCards = getWebElements(driver, selectors,
-					"CalendarPageResultsEventCards");
-			int loadedCardsNumber = CalendarPageResultsEventCards.size();
-			LOGGER.info(this.myDriverParameters+" - New size of feature event list, after lazy loading: "
-					+ loadedCardsNumber);
-
-			// Validates the lazy loading did load new events into the list
-			if (loadedCardsNumber >= initialCardsNumber) {
-				LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
-						+ ": Calendar Results, Lazy Loading fetched newer events");
-			} else {
-				LOGGER.error(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
-						+ ": Calendar Results. No new events were shown after Lazy Loading tried to update the Event List");
-				return isMyTestPassed = false;
-			}
-
-			// Scrolls again to the end of the list to trigger once more the
-			// lazy loading
-			scrollToElement(driver,
-					CalendarPageResultsEventCards.get(loadedCardsNumber - 1));
-			waitOnLoader(driver);
-			sleep(2);
-
-			// Gets the new number of loaded events, for a second time
-			CalendarPageResultsEventCards = getWebElements(driver, selectors,
-					"CalendarPageResultsEventCards");
-			int newCardsNumber = CalendarPageResultsEventCards.size();
-			LOGGER.info(this.myDriverParameters+
-					" - Size of feature event list, after lazy loading was triggered a second time: "
-							+ newCardsNumber);
-
-			// Validates the lazy loading did load new events into the list
-			if (newCardsNumber >= loadedCardsNumber) {
-				LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
-						+ ": Calendar Results, Lazy Loading fetched newer events");
-			} else {
-				LOGGER.error(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
-						+ ": Calendar Results. No new events were shown after Lazy Loading tried to update the Event List");
-				return isMyTestPassed = false;
-			}
-
+			
 			return isMyTestPassed;
 
 		} catch (Exception e) {
 			LOGGER.error(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
-					+ ": Calendar Results Section, Lazy Loading not working as expected");
+					+ ": Calendar Dynamic event types are not working as expected.");
 			LOGGER.error(this.myDriverParameters+" - "+e);
 			return isMyTestPassed = false;
 		}
 
 	}
+	
+	@Test(description = "MSG.com - Calendar Page Secondary Filters", groups = {
+			"MSGTC006CalendarPage", "fullintegration"})
+	public boolean MSGTC006CalendarPageTS007() {
 
+		String pageName = "MSG.com - Calendar Page. ";
+		String testNumber = "7";
+
+		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
+				+ ": Calendar Secondary Filters");
+
+		try {
+			WebElement secFilter = getWebElement(driver, selectors,
+					"MSGTC006CalendarPageSecFilter");
+			WebElement secFilterSeeAll = getWebElement(driver, selectors,
+					"MSGTC006CalendarPageSecFilterSeeAll");
+			WebElement secFilterSeeAllDoneBtn = getWebElement(driver, selectors,
+					"MSGTC006CalendarPageSecFilterSeeAllDoneBtn");
+			List<WebElement>  secFilterTags = getWebElements(driver, selectors,
+					"MSGTC006CalendarPageSecFilterTags");
+			List<WebElement> secFilterDayOfWeek = getWebElements(driver, selectors,
+					"MSGTC006CalendarPageSecFilterDayOfWeek");
+			List<WebElement>  secFilterTimeOfDay = getWebElements(driver, selectors,
+					"MSGTC006CalendarPageSecFilterTimeOfDay");
+			List<WebElement>  secFilterVenues = getWebElements(driver, selectors,
+					"MSGTC006CalendarPageSecFilterVenues");
+			WebElement secFilterEventCount = getWebElement(driver, selectors,
+					"MSGTC006CalendarFilteredEventCount");	
+			
+			/**
+			 * Check if Secondary filter is displayed or not?
+			 */
+			if (secFilter.isDisplayed())
+			{
+			LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
+					+ ": Calendar Secondary Filters are present.");
+			
+			/**
+			 * Check for CLick/Collapse action of filter.
+			 */
+			if(secFilterSeeAll.isDisplayed())
+			{
+				secFilterSeeAll.click();
+				Thread.sleep(1000);
+				secFilterSeeAllDoneBtn.click();
+				isMyTestPassed= true;
+				
+				LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
+						+ ": Calendar Secondary Filters See All Filters can be open/closed.");
+			}
+			
+			/**
+			 * Check if all Tags are available.
+			 */
+			if (secFilterTags.size() > 0)
+			{
+				for (int i=0;i<secFilterTags.size();i++)
+				{
+					secFilterTags.get(i).click();
+					Thread.sleep(5000);
+					secFilterEventCount = getWebElement(driver, selectors,"MSGTC006CalendarFilteredEventCount");	
+					Thread.sleep(2000);
+					if(secFilterEventCount.isDisplayed())
+					{
+						LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
+								+ ": Calendar Secondary Filters Tag - "+secFilterTags.get(i).getText().toString()+" has "+secFilterEventCount.getText().toString()+".");
+					}
+					else
+					{
+						isMyTestPassed = false;	
+					}
+					Thread.sleep(2000);
+					System.out.println("Debug-Point-0");
+					/**
+					 * Re-fetch due to stale locator.
+					 */
+					secFilterTags = getWebElements(driver, selectors,"MSGTC006CalendarPageSecFilterTags");
+					Thread.sleep(2000);
+					secFilterTags.get(i).click();
+					Thread.sleep(3000);
+				}
+				isMyTestPassed = true;	
+			}
+			
+			/**
+			 * Check if day of the week option is filtering the events.
+			 */
+			System.out.println("Debug-Point-1");
+			secFilterSeeAll = getWebElement(driver, selectors,"MSGTC006CalendarPageSecFilterSeeAll");
+			Thread.sleep(2000);
+			System.out.println("Debug-Point-2");
+			secFilterSeeAll.click();
+			System.out.println("Debug-Point-3");
+			if (secFilterDayOfWeek.size() > 0)
+			{
+				for (int i=0;i<secFilterDayOfWeek.size();i++)
+				{
+					/**
+					 * Open the secondary filter for selecting venue.
+					 */
+					if(i!=0)
+					{
+						System.out.println("Debug-Point-4");
+						secFilterSeeAll.click();
+						Thread.sleep(1000);	
+					}
+					
+					/**
+					 * select a venue.
+					 */
+					System.out.println("Debug-Point-5");
+					secFilterDayOfWeek.get(i).click();
+					/**
+					 * Close the selection by clicking done Button.
+					 */
+					System.out.println("Debug-Point-6");
+					secFilterSeeAllDoneBtn.click();
+					Thread.sleep(5000);
+					/**
+					 * If Event count is updated then display it.
+					 */
+					secFilterEventCount = getWebElement(driver, selectors,
+							"MSGTC006CalendarFilteredEventCount");	
+					Thread.sleep(2000);
+					if(secFilterEventCount.isDisplayed())
+					{
+						LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
+								+ ": Calendar Secondary Filters Venues - "+secFilterDayOfWeek.get(i).getText().toString()+" has "+secFilterEventCount.getText().toString()+".");
+					/**
+					 * Reuse the feature of calendar lazyload to verify if events are of the selected day of the week only.
+					 */
+					}
+					else
+					{
+						isMyTestPassed = false;	
+					}
+					Thread.sleep(3000);
+					/**
+					 * Click the Secondary filter for unchecking the selected venue.
+					 */
+					secFilterSeeAll.click();
+					/**
+					 * Un-check the selected venue.
+					 */
+					secFilterDayOfWeek.get(i).click();	
+					/**
+					 * Close the selection by clicking done Button.
+					 */
+					secFilterSeeAllDoneBtn.click();
+				}		
+				isMyTestPassed = true;
+			}
+			
+			/**
+			 * Check if event time option is filtering the events.
+			 */
+			secFilterSeeAll = getWebElement(driver, selectors,"MSGTC006CalendarPageSecFilterSeeAll");
+			secFilterSeeAll.click();
+			if (secFilterTimeOfDay.size() > 0)
+			{
+				for (int i=0;i<secFilterTimeOfDay.size();i++)
+				{
+					/**
+					 * Open the secondary filter for selecting venue.
+					 */
+					if(i!=0)
+					{
+						secFilterSeeAll.click();
+						Thread.sleep(1000);	
+					}
+					/**
+					 * select an event time.
+					 */
+					secFilterTimeOfDay.get(i).click();
+					/**
+					 * Close the selection by clicking done Button.
+					 */
+					secFilterSeeAllDoneBtn.click();
+					Thread.sleep(5000);
+					/**
+					 * If Event count is updated then display it.
+					 */
+					secFilterEventCount = getWebElement(driver, selectors,
+							"MSGTC006CalendarFilteredEventCount");	
+					Thread.sleep(2000);
+					if(secFilterEventCount.isDisplayed())
+					{
+						LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
+								+ ": Calendar Secondary Filters Event Time - "+secFilterTimeOfDay.get(i).getText().toString()+" has "+secFilterEventCount.getText().toString()+".");
+					/**
+					 * Reuse the feature of calendar lazyload to verify if events are of the selected day of the week only.
+					 */
+					}
+					else
+					{
+						isMyTestPassed = false;	
+					}
+					Thread.sleep(3000);
+					/**
+					 * Click the Secondary filter for unchecking the selected Time.
+					 */
+					secFilterSeeAll.click();
+					/**
+					 * Un-check the selected venue.
+					 */
+					secFilterTimeOfDay.get(i).click();	
+					/**
+					 * Close the selection by clicking done Button.
+					 */
+					secFilterSeeAllDoneBtn.click();
+				}		
+				isMyTestPassed = true;
+			}
+			
+				/**
+				 * Check if all venues are available and events are there in the calendar.
+				 */
+				secFilterSeeAll = getWebElement(driver, selectors,"MSGTC006CalendarPageSecFilterSeeAll");
+				secFilterSeeAll.click();
+				if (secFilterVenues.size() > 0)
+				{
+					for (int i=0;i<secFilterVenues.size();i++)
+					{
+						/**
+						 * Open the secondary filter for selecting venue.
+						 */
+						if(i!=0)
+						{
+							secFilterSeeAll.click();
+							Thread.sleep(1000);	
+						}
+						/**
+						 * select a venue.
+						 */
+						secFilterVenues.get(i).click();
+						/**
+						 * Close the selection by clicking done Button.
+						 */
+						secFilterSeeAllDoneBtn.click();
+						Thread.sleep(5000);
+						/**
+						 * If Event count is updated then display it.
+						 */
+						secFilterEventCount = getWebElement(driver, selectors,
+								"MSGTC006CalendarFilteredEventCount");	
+						Thread.sleep(2000);
+						if(secFilterEventCount.isDisplayed())
+						{
+							LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
+									+ ": Calendar Secondary Filters Venues - "+secFilterVenues.get(i).getText().toString()+" has "+secFilterEventCount.getText().toString()+".");
+						/**
+						 * Reuse the feature of calendar lazyload to verify if events are of the selected venue only.
+						 */
+						}
+						else
+						{
+							isMyTestPassed = false;	
+						}
+						Thread.sleep(3000);
+						/**
+						 * Click the Secondary filter for unchecking the selected venue.
+						 */
+						secFilterSeeAll.click();
+						/**
+						 * Un-check the selected venue.
+						 */
+						secFilterVenues.get(i).click();	
+						/**
+						 * Close the selection by clicking done Button.
+						 */
+						secFilterSeeAllDoneBtn.click();
+					}		
+					isMyTestPassed = true;
+				}	
+			}
+			return isMyTestPassed;
+
+		} 
+		catch (Exception e) {
+			LOGGER.error(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
+					+ ": Calendar Secondary Filters are not working as expected!");
+			LOGGER.error(this.myDriverParameters+" - "+e);
+			return isMyTestPassed = false;
+		}
+	}
+
+	
 	/**
 	 * Visual Test Enablement for Calendar Page.
 	 * @author Rachit Kumar Rastogi
@@ -626,11 +832,10 @@ public class MSGTC006CalendarPage {
 	public boolean executeVisualTest()
 	{
 		String pageName = "MSG.com - Calendar Page";
-		String testNumber = "7";
+		String testNumber = "9";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber + ": Visual Test.");
 		
 		return MSGOnlineDigitalReusableFunctionalities.executeVisualTest(driver);
 	}
-	
 }

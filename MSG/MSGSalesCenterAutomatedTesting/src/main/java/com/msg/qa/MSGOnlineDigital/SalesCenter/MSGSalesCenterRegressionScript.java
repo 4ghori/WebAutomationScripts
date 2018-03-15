@@ -102,8 +102,14 @@ public class MSGSalesCenterRegressionScript extends Thread {
 	WebDriver myDriver = null;
 	DesiredCapabilities myDesiredCapabililties;
 	
-	public static String executeVisualTest = System.getProperty("executeVisualTest");
 	
+	/**
+	 * Marked as false hard-coded on 03/12/2018 by Rachit Kumar Rastogi
+	 * Once we get the License Back make sure you enabled back the commented string to
+	 * read from jenkins env Variable.
+	 */
+	//public static String executeVisualTest = System.getProperty("executeVisualTest");
+	public static String executeVisualTest = "false";
 
 	/**
 	 * Default Constructor
@@ -498,6 +504,21 @@ public class MSGSalesCenterRegressionScript extends Thread {
 					.MSGTC002VenueLandingPageTS006();
 		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
 
+		if (myPageClassMethodsToBeExecuted.contains("TS007"))
+			isMyTestPassed = myMSGVenueLandingPage
+					.MSGTC002VenueLandingPageTS007();
+		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
+
+		if (myPageClassMethodsToBeExecuted.contains("TS008"))
+			isMyTestPassed = myMSGVenueLandingPage
+					.MSGTC002VenueLandingPageTS008();
+		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
+
+		if (myPageClassMethodsToBeExecuted.contains("TS009"))
+			isMyTestPassed = myMSGVenueLandingPage
+					.MSGTC002VenueLandingPageTS009();
+		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
+
 		/**
 		 * Code piece to address Visual Test integration in CI/CD Pipeline for msg.com
 		 */
@@ -749,6 +770,15 @@ public class MSGSalesCenterRegressionScript extends Thread {
 			isMyTestPassed = myMSGTC006CalendarPage.MSGTC006CalendarPageTS005();
 		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
 
+		if (myPageClassMethodsToBeExecuted.contains("TS006"))
+			isMyTestPassed = myMSGTC006CalendarPage.MSGTC006CalendarPageTS006();
+		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
+		
+		if (myPageClassMethodsToBeExecuted.contains("TS007"))
+			isMyTestPassed = myMSGTC006CalendarPage.MSGTC006CalendarPageTS007();
+		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
+		
+		
 		/**
 		 * Code piece to address Visual Test integration in CI/CD Pipeline for msg.com
 		 */
@@ -818,6 +848,16 @@ public class MSGSalesCenterRegressionScript extends Thread {
 		if (myPageClassMethodsToBeExecuted.contains("TS007"))
 			isMyTestPassed = myMSGTC007EventDetailsPage
 					.MSGTC007EventDetailsPageTS007();
+		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));		
+		
+		if (myPageClassMethodsToBeExecuted.contains("TS008"))
+			isMyTestPassed = myMSGTC007EventDetailsPage
+					.MSGTC007EventDetailsPageTS008();
+		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));		
+		
+		if (myPageClassMethodsToBeExecuted.contains("TS009"))
+			isMyTestPassed = myMSGTC007EventDetailsPage
+					.MSGTC007EventDetailsPageTS009();
 		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
 
 		/**

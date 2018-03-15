@@ -88,6 +88,305 @@ public class MSGTC007EventDetailsPage {
 		return isMyTestPassed;
 	}
 
+
+	/**
+	 * Step-2. Verify Global Nav
+	 */
+	@Test(description = " - MSG.com Event Details - Madison Square Garden Page. Global Nav", groups = {
+			"MSGEDPPage", "fullintegration"})
+	public boolean MSGTC007EventDetailsPageTS002() {
+
+		LOGGER.info(this.myDriverParameters
+				+ "MSG.com - Event Details Page: Test Step-2: Verify Global Nav.");
+		try {
+			/*
+			 * Set required WebElements to be used in test scenario
+			 */
+			WebElement globalNAV = getWebElement(driver, selectors,
+					"MSGTC000LandingPageGlobalNAV");
+			WebElement globalNAVEventAndTickets = getWebElement(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVEventAndTickets");
+			WebElement globalNAVVenueControl = getWebElement(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVVenueControl");
+			
+			
+			List<WebElement> globalNAVVenueTitle = getWebElements(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVVenueTitle");
+			List<WebElement>  globalNAVVenueLoc = getWebElements(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVVenueLoc");
+			List<WebElement>  globalNAVVenueImage = getWebElements(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVVenueImage");
+			List<WebElement>  globalNAVLearnMore = getWebElements(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVVenueLearnMore");
+			WebElement globalNAVBrandsControl = getWebElement(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVBrandsControl");
+			List<WebElement>  globalNAVBrandsImages = getWebElements(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVBrandsImages");
+			List<WebElement>  globalNAVBrandsTitles = getWebElements(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVBrandsTitles");
+			WebElement globalNAVBlogControl = getWebElement(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVBlogControl");
+			WebElement globalNAVBlogLink = getWebElement(driver, selectors,
+					"MSGTC000LandingPageGlobalNAVBlogLink");		
+			
+			if (globalNAV.isDisplayed())
+			{
+				LOGGER.info(this.myDriverParameters
+						+ "MSG.com - Event Details Page: Test Step-2: Global NAV is displayed.");
+				if(globalNAVEventAndTickets.isDisplayed())
+				{
+					LOGGER.info(this.myDriverParameters
+							+ "MSG.com - Event Details Page: Test Step-2: Global Nav -> Events and Tickets Option is present.");	
+					isMyTestPassed = true;
+				}
+				
+				/**
+				 * Check for Venues and options inside the venue.
+				 */
+				if(globalNAVVenueControl.isDisplayed())
+				{
+					LOGGER.info(this.myDriverParameters
+							+ "MSG.com - Event Details Page: Test Step-2: Global Nav -> Our Venues Option is present.");	
+					if(!globalNAVVenueTitle.isEmpty() && !globalNAVVenueLoc.isEmpty() && !globalNAVVenueImage.isEmpty())
+					{
+					for(int i=0; i<globalNAVVenueTitle.size();i++)
+						{
+						/**
+						 * This section will verify if ALT attribute of image will have a valid image path.
+						 */
+							if(MSGOnlineDigitalReusableFunctionalities.verifyIfLinkIsWorking(globalNAVVenueImage.get(i).getAttribute("src").toString())!=404)
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Event Details Page: Test Step-2: Global Nav -> Our Venues Option has "+globalNAVVenueTitle.get(i).getText().toString()+" venue at location: "+globalNAVVenueLoc.get(i).getText().toString()+" with a valid Thumbnail.");		
+								isMyTestPassed = true;
+							}
+							else
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Event Details Page: Test Step-2: Global Nav -> Our Venues Option has "+globalNAVVenueTitle.get(i).getText().toString()+" venue at location: "+globalNAVVenueLoc.get(i).getText().toString()+" doesn't have a valid Thumbnail!!");
+								isMyTestPassed = false;
+								break;
+							}
+							i++;
+						}
+					}
+				}
+				
+				/**
+				 * Check for Our Brands and Brands inside Our Brands section.
+				 */
+				if(globalNAVBrandsControl.isDisplayed())
+				{
+					LOGGER.info(this.myDriverParameters
+							+ "MSG.com - Event Details Page: Test Step-2: Global Nav -> Our Brands Option is present.");	
+					if(!globalNAVBrandsTitles.isEmpty() && !globalNAVBrandsImages.isEmpty())
+					{
+					for(int i=0; i<globalNAVBrandsTitles.size();i++)
+						{
+						/**
+						 * This section will verify if ALT attribute of image will have a valid image path.
+						 */
+							if(MSGOnlineDigitalReusableFunctionalities.verifyIfLinkIsWorking(globalNAVBrandsImages.get(i).getAttribute("src").toString())!=404)
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Event Details Page: Test Step-2: Global Nav -> Our Brands Option has "+globalNAVBrandsTitles.get(i).getText().toString()+" Brand with a valid Thumbnail.");		
+								isMyTestPassed = true;
+							}
+							else
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Event Details Page: Test Step-2: Global Nav -> Our Brands Option has "+globalNAVBrandsTitles.get(i).getText().toString()+" Brand doesn't have a valid Thumbnail!!");
+								isMyTestPassed = false;
+								break;
+							}
+							i++;
+						}
+					}
+				}
+				
+				/**
+				 * Official Blog Link is present.
+				 */
+				if(globalNAVBlogLink.isDisplayed())
+				{
+					LOGGER.info(this.myDriverParameters
+							+ "MSG.com - Event Details Page: Test Step-2: Global Nav -> Official Blog Option is present.");	
+					isMyTestPassed = true;
+				}
+				
+			}			
+		return isMyTestPassed;
+
+	} catch (Exception e) {
+		LOGGER.info(this.myDriverParameters
+				+ " - MSG.com Event Details- Madison Square Garden Page: Test Step-2: MSG Global Nav is missing!!");
+		LOGGER.error(this.myDriverParameters + " - " + e);
+		return false;
+	}
+
+}
+
+	/**
+	 * Step-3. Verify Secondary Nav
+	 */
+	@Test(description = " - MSG.com Event Details- Madison Square Garden Page. Secondary Nav Tests", groups = {
+			"MSGEDPPage", "fullintegration"})
+	public boolean MSGTC007EventDetailsPageTS003() {
+
+		LOGGER.info(this.myDriverParameters
+				+ "MSG.com - Event Details Page: Test Step-3: Verify Secondary Nav.");
+		try {
+			
+			/*
+			 * Set required WebElements to be used in test scenario
+			 */
+			WebElement secNAV = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAV");
+			WebElement secNAVBuyTickets = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAVBuyTickets");			
+			WebElement secNAVBuyTicketsLink = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAVBuyTicketsLink");	
+			List<WebElement> secNAVBuyTicketsOptions = getWebElements(driver, selectors,
+					"MSGTC000LandingPageSecNAVBuyTicketsOptions");	
+			WebElement secNAVBuyTicketsExploreAllOptions = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAVBuyTicketsExploreAllEvents");	
+			WebElement secNAVPremHosp = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAVPremHosp");	
+			WebElement secNAVPremHospLink = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAVPremHospLink");	
+			WebElement secNAVPanYourVisit = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAVPlanYourVisit");	
+			WebElement secNAVPlanYourVisitLink = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAVPlanYourVisitLink");	
+			List<WebElement> secNAVPlanYourVisitOptions = getWebElements(driver, selectors,
+					"MSGTC000LandingPageSecNAVPlanYourVisitOptions");	
+			WebElement secNAVVenueRentals = getWebElement(driver, selectors,
+					"MSGTC000LandingPageSecNAVVenueRentals");	
+			
+			if (secNAV.isDisplayed())
+			{
+				LOGGER.info(this.myDriverParameters
+						+ "MSG.com - Event Details Page: Test Step-3: Secondary NAV is displayed.");
+				
+				/**
+				 * Check for Venues and options inside the venue.
+				 */
+				if(secNAVBuyTicketsLink.isDisplayed())
+				{
+					secNAVBuyTicketsLink.click();
+					
+					LOGGER.info(this.myDriverParameters
+							+ "MSG.com - Event Details Page: Test Step-3: Secondary Nav -> Buy Tickets Option is present.");	
+					if(!secNAVBuyTicketsOptions.isEmpty())
+					{
+					for(int i=0; i<secNAVBuyTicketsOptions.size();i++)
+						{
+						/**
+						 * This section will verify if ALT attribute of image will have a valid image path.
+						 */
+							if(MSGOnlineDigitalReusableFunctionalities.verifyIfLinkIsWorking(secNAVBuyTicketsOptions.get(i).getAttribute("href").toString())!=404)
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Event Details Page: Test Step-2: Secondary Nav -> Buy Tickets Option "+secNAVBuyTicketsOptions.get(i).getText().toString()+" has a valid Link.");		
+								isMyTestPassed = true;
+							}
+							else
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Event Details Page: Test Step-2: Secondary Nav -> Buy Tickets Option "+secNAVBuyTicketsOptions.get(i).getText().toString()+" has a invalid Link!!");		
+								isMyTestPassed = false;
+								break;
+							}
+							i++;
+						}
+					}
+					
+					if(secNAVBuyTicketsExploreAllOptions.isDisplayed())
+					{
+						/**
+						 * This section will verify if ALT attribute of image will have a valid image path.
+						 */
+							if(MSGOnlineDigitalReusableFunctionalities.verifyIfLinkIsWorking(secNAVBuyTicketsExploreAllOptions.getAttribute("href").toString())!=404)
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Event Details Page: Test Step-2: Secondary Nav -> Buy Tickets -> Explore All Events Option "+secNAVBuyTicketsExploreAllOptions.getText().toString()+" has a valid Link.");		
+								isMyTestPassed = true;
+							}
+							else
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Event Details Page: Test Step-2: Secondary Nav -> Buy Tickets -> Explore All Events Option "+secNAVBuyTicketsExploreAllOptions.getText().toString()+" has a invalid Link!!");		
+								isMyTestPassed = false;
+							}
+					}
+				}
+				
+				/**
+				 * Check if Premium Hospitality options is displayed.
+				 */
+				if(secNAVPremHospLink.isDisplayed())
+				{
+					LOGGER.info(this.myDriverParameters
+							+ "MSG.com - Event Details Page: Test Step-2: Secondary Nav -> Premium Hospitality Option is present.");	
+					isMyTestPassed = true;
+				}			
+				
+				/**
+				 * Check for Plan Your Visit section.
+				 */
+				if(secNAVPlanYourVisitLink.isDisplayed())
+				{
+					LOGGER.info(this.myDriverParameters
+							+ "MSG.com - Event Details Page: Test Step-2: Secondary Nav -> Plan Your Visit Option is present.");	
+					if(!secNAVPlanYourVisitOptions.isEmpty())
+					{
+					for(int i=0; i<secNAVPlanYourVisitOptions.size();i++)
+						{
+						/**
+						 * This section will verify if ALT attribute of image will have a valid image path.
+						 */
+							if(MSGOnlineDigitalReusableFunctionalities.verifyIfLinkIsWorking(secNAVPlanYourVisitOptions.get(i).getAttribute("href").toString())!=404)
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Event Details Page: Test Step-2: Secondary Nav -> Plan your Visit Option "+secNAVPlanYourVisitOptions.get(i).getText().toString()+" has a valid Link.");		
+								isMyTestPassed = true;
+							}
+							else
+							{
+								LOGGER.info(this.myDriverParameters
+										+ "MSG.com - Event Details Page: Test Step-2: Secondary Nav -> Plan your Visit Option "+secNAVPlanYourVisitOptions.get(i).getText().toString()+" has a invalid Link!!");		
+								isMyTestPassed = false;
+								break;
+							}
+							i++;
+						}
+					}
+				}
+				
+				/**
+				 * Venue rentals Link is present.
+				 */
+				if(secNAVVenueRentals.isDisplayed())
+				{
+					LOGGER.info(this.myDriverParameters
+							+ "MSG.com - Event Details Page: Test Step-2: Secondary Nav -> Venue Rentals Option is present.");	
+					isMyTestPassed = true;
+				}
+				
+			}			
+		return isMyTestPassed;
+
+	} catch (Exception e) {
+		LOGGER.info(this.myDriverParameters
+				+ " - MSG.com Event Details- Madison Square Garden Page: Test Step-3: MSG Secondary Nav is missing!!");
+		LOGGER.error(this.myDriverParameters + " - " + e);
+		return false;
+	}
+
+}
+	
+	
+	
 	/**
 	 * Step-2. Verify the Hero Section: Object/Image/Video/ Link/
 	 * Text/Label/Button - Validation Parameters a. Hero Title - Present and not
@@ -96,10 +395,10 @@ public class MSGTC007EventDetailsPage {
 	 */
 	@Test(description = "MSG.com - Event Details. Hero Section Tests", groups = {
 			"MSGEventDetailsPage", "fullintegration"})
-	public boolean MSGTC007EventDetailsPageTS002() {
+	public boolean MSGTC007EventDetailsPageTS004() {
 
 		String pageName = "MSG.com - Event Details Page";
-		String testNumber = "2";
+		String testNumber = "4";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
 				+ ": Verify Hero Section.");
@@ -150,10 +449,10 @@ public class MSGTC007EventDetailsPage {
 
 	@Test(description = "MSG.com - Event Details. Event Date Tests", groups = {
 			"MSGEventDetailsPage", "fullintegration"})
-	public boolean MSGTC007EventDetailsPageTS003() {
+	public boolean MSGTC007EventDetailsPageTS005() {
 
 		String pageName = "MSG.com - Event Details Page";
-		String testNumber = "3";
+		String testNumber = "5";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
 				+ ": Verify Even Date Section.");
@@ -249,10 +548,10 @@ public class MSGTC007EventDetailsPage {
 
 	@Test(description = "MSG.com - Event Details. About the Event Tests", groups = {
 			"MSGEventDetailsPage", "fullintegration"})
-	public boolean MSGTC007EventDetailsPageTS004() {
+	public boolean MSGTC007EventDetailsPageTS006() {
 
 		String pageName = "MSG.com - Event Details Page";
-		String testNumber = "4";
+		String testNumber = "6";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
 				+ ": About the Event Section.");
@@ -303,10 +602,10 @@ public class MSGTC007EventDetailsPage {
 
 	@Test(description = "MSG.com - Event Details. About the Event Tests", groups = {
 			"MSGEventDetailsPage", "fullintegration"})
-	public boolean MSGTC007EventDetailsPageTS005() {
+	public boolean MSGTC007EventDetailsPageTS007() {
 
 		String pageName = "MSG.com - Event Details Page";
-		String testNumber = "5";
+		String testNumber = "7";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
 				+ ": About the Event Section.");
@@ -339,10 +638,10 @@ public class MSGTC007EventDetailsPage {
 
 	@Test(description = "MSG.com - Event Details. Plan Ahead Tests", groups = {
 			"MSGEventDetailsPage", "fullintegration"})
-	public boolean MSGTC007EventDetailsPageTS006() {
+	public boolean MSGTC007EventDetailsPageTS008() {
 
 		String pageName = "MSG.com - Event Details Page";
-		String testNumber = "6";
+		String testNumber = "8";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
 				+ ": Plan Ahead Section.");
@@ -419,10 +718,10 @@ public class MSGTC007EventDetailsPage {
 
 	@Test(description = "MSG.com - Event Details. Visual links title Tests", groups = {
 			"MSGEventDetailsPage", "fullintegration"})
-	public boolean MSGTC007EventDetailsPageTS007() {
+	public boolean MSGTC007EventDetailsPageTS009() {
 
 		String pageName = "MSG.com - Event Details Page";
-		String testNumber = "7";
+		String testNumber = "9";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
 				+ ": Visual links section.");
