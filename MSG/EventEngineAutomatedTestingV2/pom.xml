@@ -1,0 +1,557 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.msg.automation</groupId>
+  <artifactId>EventEngineAutomatedTestingV2</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>EventEngineAutomatedTestingV2</name>
+  <url>http://maven.apache.org</url>
+
+
+   <repositories>
+        <repository>
+            <id>atlassian-public1</id>
+            <url>https://maven.atlassian.com/repository/public</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+        </repository>
+        <repository>
+            <id>atlassian-public2</id>
+            <url>https://m2proxy.atlassian.com/repository/public</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+        </repository>
+        <repository>
+            <id>atlassian-public3</id>
+            <url>https://maven.atlassian.com/content/groups/public</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+        </repository>
+    </repositories>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <suite>testng</suite>
+  </properties>
+
+<dependencies>
+
+
+
+	<!--  Cucumber Dependencies Added On Feb-10- 2018 -->
+	<dependency>
+	    <groupId>info.cukes</groupId>
+	    <artifactId>cucumber-java</artifactId>
+	    <version>1.2.4</version>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-junit -->
+	<dependency>
+	    <groupId>info.cukes</groupId>
+	    <artifactId>cucumber-junit</artifactId>
+	    <version>1.2.4</version>
+	    <scope>test</scope>
+	</dependency>
+
+
+
+
+
+
+
+ 	<dependency>
+        <groupId>net.lightbody.bmp</groupId>
+        <!-- To use the legacy, Jetty-based implementation,
+             change the artifactId to browsermob-core -->
+        <artifactId>browsermob-core-littleproxy</artifactId>
+        <version>2.1.0-beta-5</version>
+        <scope>test</scope>
+    </dependency>
+
+
+       <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.7.2</version>
+        </dependency>
+
+         <dependency>
+            <groupId>com.atlassian.jira</groupId>
+            <artifactId>jira-rest-java-client-core</artifactId>
+            <version>2.0.0-m30</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.atlassian.connect</groupId>
+            <artifactId>ac-play-java_2.10</artifactId>
+            <version>0.10.1</version>
+            <exclusions>
+                <!--
+                <exclusion>
+                    <groupId>com.atlassian.fugue</groupId>
+                    <artifactId>fugue</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.atlassian.jwt</groupId>
+                    <artifactId>jwt-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.atlassian.jwt</groupId>
+                    <artifactId>jwt-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-lang</groupId>
+                    <artifactId>commons-lang</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>net.oauth.core</groupId>
+                    <artifactId>oauth</artifactId>
+                </exclusion>
+-->
+                <exclusion>
+                    <groupId>com.typesafe.play</groupId>
+                    <artifactId>filters-helpers_2.10</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.typesafe.play</groupId>
+                    <artifactId>play-cache_2.10</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.typesafe.play</groupId>
+                    <artifactId>play-java-jdbc_2.10</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.typesafe.play</groupId>
+                    <artifactId>play-java-jpa_2.10</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.typesafe.play</groupId>
+                    <artifactId>play-java_2.10</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.typesafe.play</groupId>
+                    <artifactId>play_2.10</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-codec</groupId>
+                    <artifactId>commons-codec</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.bouncycastle</groupId>
+                    <artifactId>bcprov-jdk16</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-entitymanager</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.scala-lang</groupId>
+                    <artifactId>scala-library</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>postgresql</groupId>
+                    <artifactId>postgresql</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>xml-apis</groupId>
+                    <artifactId>xml-apis</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.typesafe.play</groupId>
+                    <artifactId>play-test_2.10</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.hamcrest</groupId>
+                    <artifactId>hamcrest-all</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mockito</groupId>
+                    <artifactId>mockito-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.19</version>
+        </dependency>
+
+       <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+        <!-- >dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4</version>
+        </dependency -->
+
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.8.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/net.bican/jwordpress -->
+        <dependency>
+            <groupId>net.bican</groupId>
+            <artifactId>jwordpress</artifactId>
+            <version>0.6.5</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.sendgrid/sendgrid-java -->
+        <dependency>
+            <groupId>com.sendgrid</groupId>
+            <artifactId>sendgrid-java</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.twilio.sdk/twilio-java-sdk -->
+        <dependency>
+            <groupId>com.twilio.sdk</groupId>
+            <artifactId>twilio-java-sdk</artifactId>
+            <version>7.0.0-rc-10</version>
+        </dependency>
+
+     <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.10</version>
+        </dependency>
+
+       <!--  >dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>1.3.2</version>
+        </dependency -->
+
+        <!-- >dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4</version>
+        </dependency -->
+
+        <!-- >dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.8.3</version>
+        </dependency -->
+
+        <!-- https://mvnrepository.com/artifact/net.bican/jwordpress -->
+        <!-- >dependency>
+            <groupId>net.bican</groupId>
+            <artifactId>jwordpress</artifactId>
+            <version>0.6.5</version>
+        </dependency-->
+
+        <!-- https://mvnrepository.com/artifact/com.sendgrid/sendgrid-java -->
+        <!--  >dependency>
+            <groupId>com.sendgrid</groupId>
+            <artifactId>sendgrid-java</artifactId>
+            <version>3.1.0</version>
+        </dependency-->
+
+        <!-- https://mvnrepository.com/artifact/com.twilio.sdk/twilio-java-sdk -->
+        <!-- >dependency>
+            <groupId>com.twilio.sdk</groupId>
+            <artifactId>twilio-java-sdk</artifactId>
+            <version>7.0.0-rc-10</version>
+        </dependency -->
+
+  <!--  POI  -->
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi</artifactId>
+		<version>3.6</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi-ooxml</artifactId>
+		<version>3.6</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi-ooxml-schemas</artifactId>
+		<version>3.6</version>
+	</dependency>
+	<dependency>
+		<groupId>dom4j</groupId>
+		<artifactId>dom4j</artifactId>
+		<version>1.1</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.xmlbeans</groupId>
+		<artifactId>xmlbeans</artifactId>
+		<version>2.3.0</version>
+	</dependency>
+
+		<!--
+       <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20090211</version>
+        </dependency>
+ 	-->
+
+       <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+
+<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+		<dependency>
+		    <groupId>io.rest-assured</groupId>
+		    <artifactId>rest-assured</artifactId>
+		    <version>3.0.6</version>
+		    <scope>test</scope>
+		</dependency>
+
+
+
+<!--Selenium-->
+ 		<dependency>
+       			 <groupId>org.seleniumhq.selenium</groupId>
+        	       	<artifactId>selenium-java</artifactId>
+		         <!-- >version>2.53.0</version-->
+		         <!--version>3.2.0</version-->
+		         <version>3.8.0</version>
+   		 </dependency>
+
+   		 <dependency>
+    			<groupId>org.seleniumhq.selenium</groupId>
+    			<artifactId>selenium-support</artifactId>
+    			<!-- version>3.2.0</version-->
+    			<version>3.8.0</version>
+		</dependency>
+
+<!--Extent Reports-->
+
+		<dependency>
+			<groupId>com.relevantcodes</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>2.40.1</version>
+		</dependency>
+
+<!--  Testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.9.6</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.maven.surefire</groupId>
+			<artifactId>surefire</artifactId>
+			<version>2.18.1</version>
+			<type>pom</type>
+		</dependency>
+		<!--  Appium -->
+
+		<dependency>
+			<groupId>io.appium</groupId>
+			<artifactId>java-client</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<!-- >version>17.0</version -->
+			<version>21.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-validator</groupId>
+			<artifactId>commons-validator</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+<!-- Java mail api -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+<!-- Misc Others -->
+		<dependency>
+		    <groupId>commons-logging</groupId>
+		    <artifactId>commons-logging</artifactId>
+		    <version>1.1.3</version>
+		</dependency>
+
+		<dependency>
+    		<groupId>org.hamcrest</groupId>
+    		<artifactId>hamcrest-core</artifactId>
+    		<version>1.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<dependency>
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>42.0.0</version>
+		</dependency>
+
+	<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		    <version>4.5.2</version>
+		</dependency>
+	-->
+
+
+</dependencies>
+
+  	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+
+			 <plugin>
+	  				<groupId>org.codehaus.mojo</groupId>
+	  				<artifactId>exec-maven-plugin</artifactId>
+	  				<version>1.6.0</version>
+	  				<executions>
+	      				<execution>
+	          				<id>my-execution</id>
+	          				<phase>test</phase>
+	          				<goals>
+	              				<goal>java</goal>
+	          				</goals>
+	      				</execution>
+	  				</executions>
+	  				<configuration>
+	    				<!-- mainClass>main.java.util.ASampleClass</mainClass-->
+	    				<mainClass>com.msg.suites.testcases.ZSuite_Test_DriverThreadCall</mainClass>
+	    				<classpathScope>test</classpathScope>
+	  				</configuration>
+	 		</plugin>
+
+ 		</plugins>
+    </build>
+
+
+
+
+	<!--
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<parallel>tests</parallel>
+          			<threadCount>8</threadCount>
+					<suiteXmlFiles>
+						<suiteXmlFile>${project.build.directory}/test-classes/${suite}.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+
+		</plugins>
+
+	</build>
+	 -->
+
+</project>

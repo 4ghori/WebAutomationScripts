@@ -2,13 +2,25 @@ package com.msg.qa.MSGOnlineDigital.SalesCenter;
 
 import static com.msg.qa.common.MSGOnlineDigitalReusableFunctionalities.*;
 
+import java.io.IOException;
+import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.msg.qa.common.MSGOnlineDigitalReusableFunctionalities;
 import com.sun.jna.platform.win32.WinUser;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
@@ -24,6 +36,7 @@ import org.testng.annotations.Test;
 public class MSGTC007EventDetailsPage {
 	private static final Logger LOGGER = Logger
 			.getLogger(MSGTC007EventDetailsPage.class);
+	private static final String eeProductionAPIEndPoint = "https://api.msg.com/v2/events/";
 
 	WebDriver driver = null;
 	String URL;
@@ -87,7 +100,6 @@ public class MSGTC007EventDetailsPage {
 		}
 		return isMyTestPassed;
 	}
-
 
 	/**
 	 * Step-2. Verify Global Nav
@@ -383,12 +395,10 @@ public class MSGTC007EventDetailsPage {
 		return false;
 	}
 
-}
-	
-	
+}	
 	
 	/**
-	 * Step-2. Verify the Hero Section: Object/Image/Video/ Link/
+	 * Step-4. Verify the Hero Section: Object/Image/Video/ Link/
 	 * Text/Label/Button - Validation Parameters a. Hero Title - Present and not
 	 * empty b. Hero Subtitle - Present and not empty c. Hero Detail - Present
 	 * and not empty d. Hero Image - Present
@@ -447,6 +457,9 @@ public class MSGTC007EventDetailsPage {
 
 	}
 
+	/**
+	 * Step-5. Event Details. Event Date Tests
+	 */
 	@Test(description = "MSG.com - Event Details. Event Date Tests", groups = {
 			"MSGEventDetailsPage", "fullintegration"})
 	public boolean MSGTC007EventDetailsPageTS005() {
@@ -546,6 +559,9 @@ public class MSGTC007EventDetailsPage {
 
 	}
 
+	/**
+	 * Step-6. Event Details. About Event
+	 */
 	@Test(description = "MSG.com - Event Details. About the Event Tests", groups = {
 			"MSGEventDetailsPage", "fullintegration"})
 	public boolean MSGTC007EventDetailsPageTS006() {
@@ -600,7 +616,12 @@ public class MSGTC007EventDetailsPage {
 
 	}
 
-	@Test(description = "MSG.com - Event Details. About the Event Tests", groups = {
+	/**
+	 * Step-7. Event Details. Related Events
+	 * https://thegarden.atlassian.net/browse/MSGCOM-618
+	 * Change is done by Rachit Kumar Rastogi, on 03/20/2018
+	 */
+	@Test(description = "MSG.com - Event Details. Related Event Tests", groups = {
 			"MSGEventDetailsPage", "fullintegration"})
 	public boolean MSGTC007EventDetailsPageTS007() {
 
@@ -608,40 +629,231 @@ public class MSGTC007EventDetailsPage {
 		String testNumber = "7";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
-				+ ": About the Event Section.");
+				+ ": Related Events Section.");
 
 		try {
 
-			/*
-			 * Set required WebElements to be used in test scenario
+			/**
+			 * 1. Parse DOM to get the Event ID (XPATH: .//a[@data-linkname[contains(.,'calendar:event-detail:under-hero:buy-tickets')]]) 
+			 *    e.g. If you pick Bily Joel then use Event ID of Bily Joel from the DOM (e.g. 3B005352966C17E4).
 			 */
+			WebElement relatedEventId = getWebElement(driver, selectors,"MSGTC007EventDetailsPageGetEventID");
+			LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber + " relatedEventId - "+ relatedEventId.getAttribute("href").toString());
+			
+			/**
+			 * 1.1: Split the string and fetch the Event id.
+			 */
+			String[] myPatterns = relatedEventId.getAttribute("href").toString().split("?");			
+			String myEDPEventID = myPatterns[0].substring(myPatterns[0].length()-17, myPatterns[0].length()-1);
+			List<String> myRelatedEventIDs = new ArrayList<String>();
+			/**
+			 * 1.2: Now that we have Fetched Event ID we should hit the EE Production API end Point and fetch the related Events from JSON Array of Related events.
+			 */
+			//List<String> relatedEventIDs = new ArrayList<String>();
+			// TODO Auto-generated method stub
+			URI uri = new URI(eeProductionAPIEndPoint+myEDPEventID);
 
-			WebElement aboutEventTitle = getWebElement(driver, selectors,
-					"MSGTC007EventDetailsAboutEventTitle");
-			scrollToElement(driver, aboutEventTitle);
-			isMyTestPassed = true;
+			HttpResponse response = null;
+			DefaultHttpClient restClient = new DefaultHttpClient();
+			HttpGet httpGet = new HttpGet(uri);
+			/**
+			 * CAUTION --- Implement authorization if you plan to use v.25 api End Point.
+			 */
+			//httpGet.setHeader("Authorization", this.basicAuthKey);
 
-			// Validates the ADS name
-			isMyTestPassed = testVisual(aboutEventTitle, pageName, "ADS",
-					testNumber, isMyTestPassed, this.myDriverParameters);
+			try {
+				response = restClient.execute(httpGet);
+			} catch (ClientProtocolException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 
+			int statusCode = response.getStatusLine().getStatusCode();
+
+			if (statusCode >= 200 && statusCode < 300) {
+				HttpEntity entity1 = response.getEntity();
+				String string1 = null;
+				try {
+					string1 = EntityUtils.toString(entity1);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+				JSONObject eventsMetaData = new JSONObject(string1);
+				JSONArray eventsResultsData = eventsMetaData.getJSONArray("results");
+				if (eventsResultsData.length() == 0) {
+					/**
+					 * No related events Error handling.
+					 */
+				}
+
+				for (int j = 0; j <= eventsResultsData.length() - 1; j++) {
+					JSONObject singleEventResultSet = eventsResultsData.getJSONObject(j);
+
+					for (Object Keys : singleEventResultSet.keySet()) {
+						if (Keys.equals("related_events")) {
+							JSONArray relatedEventsData = singleEventResultSet.getJSONArray("related_events");
+							for (int k = 0; k <= relatedEventsData.length() - 1; k++) {
+								/**
+								 * 1.3: Use the Related Event IDs and find the event date/time/Venue.
+								 */
+								myRelatedEventIDs.add(relatedEventsData.getString(k).toString());	
+							}					
+						}
+					}
+				}
+			}
+			/**
+			 * 1.4: iterate over the Event ids and find the date/time/venue of the event.
+			 */
+			for(String relatedEvent:myRelatedEventIDs)
+			{
+				uri = new URI(eeProductionAPIEndPoint+relatedEvent);
+
+				response = null;
+				restClient = new DefaultHttpClient();
+				httpGet = new HttpGet(uri);
+				/**
+				 * CAUTION --- Implement authorization if you plan to use v.25 api End Point.
+				 */
+				//httpGet.setHeader("Authorization", this.basicAuthKey);
+
+				try {
+					response = restClient.execute(httpGet);
+				} catch (ClientProtocolException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+				statusCode = response.getStatusLine().getStatusCode();
+
+				if (statusCode >= 200 && statusCode < 300) {
+					HttpEntity entity1 = response.getEntity();
+					String string1 = null;
+					try {
+						string1 = EntityUtils.toString(entity1);
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+
+					JSONObject eventsMetaData = new JSONObject(string1);
+					JSONArray eventsResultsData = eventsMetaData.getJSONArray("results");
+					if (eventsResultsData.length() == 0) {
+						/**
+						 * No related events Error handling.
+						 */
+					}
+
+					for (int j = 0; j <= eventsResultsData.length() - 1; j++) {
+						JSONObject singleEventResultSet = eventsResultsData.getJSONObject(j);
+
+						for (Object Keys : singleEventResultSet.keySet()) {
+							if (Keys.equals("related_events")) {
+								JSONArray relatedEventsData = singleEventResultSet.getJSONArray("related_events");
+								for (int k = 0; k <= relatedEventsData.length() - 1; k++) {
+									/**
+									 * 1.3: Use the Related Event IDs and find the event date/time/Venue.
+									 */
+									myRelatedEventIDs.add(relatedEventsData.getString(k).toString());	
+								}					
+							}
+						}
+					}
+				}
+			}
+			
+			
+			/**
+			 * 2. Based on Event ID fetched in Step-1, query: https://api.msg.com/v2/events/3B005352966C17E4 for fetching related_events Array. 
+			 */
+			
+			
+			/**
+			 * 3. In Response JSON you will get related events in JSONArray: "related_events":["3B00543AF4153ECF","3B005432FAE5327E"]
+			 *    Now parse through this Array to get the related events IDs
+			 */
+			
+			
+			/**
+			 * 4. Based on Event ID fetched in Step-3, query: https://api.msg.com/v2/events/3B00543AF4153ECF and https://api.msg.com/v2/events/3B005432FAE5327E for fetching related event details. 
+			 */
+			
+			
+			/**
+			 * 5. Now access the Interested in module in front-end: (XPATH: .//h2[contains(text(),'You Might Be Interested In')])
+			 */
+			
+			
+			/**
+			 * 6. Related Event Cards date/time: (XPATH: .//*[@class='event-detail-list'])
+			 * a. Date/Time: (XPATH: .//*[@class='event-detail-list']/li/time)
+			 * b. Venue: (XPATH: .//*[@class='event-detail-list']/li[2])
+			 */
+			
+			
+			/**
+			 * 7. Related Event Image - check if images are displayed: (XPATH: .//*[@class='LazyLoad is-visible']/div/picture/img) src attribute for image path
+			 */
+			
+			
+		
+			/**
+			 * 8. Related Event Title - Check if Title is displayed: (XPATH: .//h2[@class='h5 medium'])
+			 */
+			
+			
 			return isMyTestPassed;
 
 		} catch (Exception e) {
 			LOGGER.error(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
-					+ ": MSG Events ADS. Elements are missing!!");
+					+ ": MSG Events Related Events Section is having issues!!");
 			LOGGER.error(this.myDriverParameters+" - "+e);
 			return isMyTestPassed = false;
 		}
 
 	}
 
-	@Test(description = "MSG.com - Event Details. Plan Ahead Tests", groups = {
+	/**
+	 * Step-8. Event Details. Ads
+	 */
+	@Test(description = "MSG.com - Event Details. Ads Tests", groups = {
 			"MSGEventDetailsPage", "fullintegration"})
 	public boolean MSGTC007EventDetailsPageTS008() {
 
 		String pageName = "MSG.com - Event Details Page";
 		String testNumber = "8";
+
+		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
+				+ ": ad Section.");
+
+		try {
+
+			return isMyTestPassed;
+
+		} catch (Exception e) {
+			LOGGER.error(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
+					+ ": MSG Events Ad Elements are missing!!");
+			LOGGER.error(this.myDriverParameters+" - "+e);
+			return isMyTestPassed = false;
+		}
+
+	}	
+	
+	/**
+	 * Step-9. Event Details. Plan Ahead.
+	 */
+	@Test(description = "MSG.com - Event Details. Plan Ahead Tests", groups = {
+			"MSGEventDetailsPage", "fullintegration"})
+	public boolean MSGTC007EventDetailsPageTS009() {
+
+		String pageName = "MSG.com - Event Details Page";
+		String testNumber = "9";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
 				+ ": Plan Ahead Section.");
@@ -716,12 +928,15 @@ public class MSGTC007EventDetailsPage {
 
 	}
 
+	/**
+	 * Step-10. Event Details. Visual Link Tests
+	 */
 	@Test(description = "MSG.com - Event Details. Visual links title Tests", groups = {
 			"MSGEventDetailsPage", "fullintegration"})
-	public boolean MSGTC007EventDetailsPageTS009() {
+	public boolean MSGTC007EventDetailsPageTS010() {
 
 		String pageName = "MSG.com - Event Details Page";
-		String testNumber = "9";
+		String testNumber = "10";
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
 				+ ": Visual links section.");

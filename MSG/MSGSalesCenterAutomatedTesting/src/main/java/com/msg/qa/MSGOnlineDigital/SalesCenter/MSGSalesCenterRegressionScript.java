@@ -730,7 +730,7 @@ public class MSGSalesCenterRegressionScript extends Thread {
 	}
 
 	/**
-	 * ---- Added Test: MSGSalesCenter Group Outings Page ----
+	 * ---- Added Test: MSGSalesCenter Calendar Page ----
 	 **/
 	@Test(description = "Test MSGSalesCenter Calendar Page")
 	public static boolean MSGTC006CalendarPage(WebDriver driver, String myURL,
@@ -794,7 +794,7 @@ public class MSGSalesCenterRegressionScript extends Thread {
 	}
 
 	/**
-	 * ---- Added Test: MSGSalesCenter Venue Rentals Delta Sky Page ----
+	 * ---- Added Test: MSGSalesCenter Event Details Page ----
 	 **/
 	@Test(description = "Test MSG Event Details Page")
 	public static boolean MSGTC007EventDetailsPage(WebDriver driver,
@@ -859,6 +859,11 @@ public class MSGSalesCenterRegressionScript extends Thread {
 			isMyTestPassed = myMSGTC007EventDetailsPage
 					.MSGTC007EventDetailsPageTS009();
 		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
+		
+		if (myPageClassMethodsToBeExecuted.contains("TS010"))
+			isMyTestPassed = myMSGTC007EventDetailsPage
+					.MSGTC007EventDetailsPageTS010();
+		PageClassStepsExecutionStatus.add(String.valueOf(isMyTestPassed));
 
 		/**
 		 * Code piece to address Visual Test integration in CI/CD Pipeline for msg.com
@@ -875,7 +880,7 @@ public class MSGSalesCenterRegressionScript extends Thread {
 	}
 
 	/**
-	 * ---- Added Test: MSGSalesCenter Premium Hospitality Lexus Suites Page
+	 * ---- Added Test: MSGSalesCenter Venue rentals MSG Radio City Page
 	 * ----
 	 **/
 	@Test(description = "Test MSGSalesCenter Premium Hospitality Lexus Suites Page")
@@ -925,7 +930,7 @@ public class MSGSalesCenterRegressionScript extends Thread {
 	}
 
 	/**
-	 * ---- Added Test: MSGSalesCenter Premium Hospitality Lexus Suites Page
+	 * ---- Added Test: MSGSalesCenter Premium Hospitality Event Level Suites Page
 	 * ----
 	 **/
 	@Test(description = "Test MSGSalesCenter Premium Hospitality Lexus Suites Page")
@@ -1009,7 +1014,7 @@ public class MSGSalesCenterRegressionScript extends Thread {
 	}
 
 	/**
-	 * ---- Added Test: MSGSalesCenter Venue Rentals MSG Radio City Page ----
+	 * ---- Added Test: MSGSalesCenter Venue Tours Page ----
 	 **/
 	@Test(description = "Test MSG.com Venue Tours Page")
 	public static boolean MSGSalesCenterTC010VenueToursPage(WebDriver driver,
@@ -1302,7 +1307,7 @@ public class MSGSalesCenterRegressionScript extends Thread {
 	}
 	
 	/**
-	 * ---- Added Test: MSG.com Rangers Tickets Page ----
+	 * ---- Added Test: MSG.com Search Page ----
 	 *
 	 * @param myTestCasesWithSteps
 	 **/
@@ -1380,7 +1385,7 @@ public class MSGSalesCenterRegressionScript extends Thread {
 	}
 
 	/**
-	 * Heart of the script, a thread method to keep all of the page classes
+	 * --- Heart of the script, a thread method to keep all of the page classes ---
 	 * method calls, sauce/Jira update etc.
 	 */
 

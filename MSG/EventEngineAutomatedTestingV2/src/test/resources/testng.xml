@@ -1,0 +1,10 @@
+<suite name="SuiteName" parallel="tests">
+	
+	<test name="Suit Test Driver" allow-return-values="true">
+		<classes>
+			<class name="com.msg.suites.testcases.Suite_Test_Driver" />
+		</classes>
+	</test>
+	
+</suite>
+
