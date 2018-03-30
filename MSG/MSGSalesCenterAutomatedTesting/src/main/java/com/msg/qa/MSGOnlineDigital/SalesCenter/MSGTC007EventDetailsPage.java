@@ -5,6 +5,7 @@ import static com.msg.qa.common.MSGOnlineDigitalReusableFunctionalities.*;
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +37,8 @@ import org.testng.annotations.Test;
 public class MSGTC007EventDetailsPage {
 	private static final Logger LOGGER = Logger
 			.getLogger(MSGTC007EventDetailsPage.class);
-	private static final String eeProductionAPIEndPoint = "https://api.msg.com/v2/events/";
+	private static final String eeProductionAPIEventEndPoint = "https://api.msg.com/v2/events/";
+	private static final String eeProductionAPIVenueEndPoint = "https://api.msg.com/v2/venues/";
 
 	WebDriver driver = null;
 	String URL;
@@ -627,12 +629,12 @@ public class MSGTC007EventDetailsPage {
 
 		String pageName = "MSG.com - Event Details Page";
 		String testNumber = "7";
+		String myrelatedEvents[][] = new String[50][4];
 
 		LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber
 				+ ": Related Events Section.");
 
 		try {
-
 			/**
 			 * 1. Parse DOM to get the Event ID (XPATH: .//a[@data-linkname[contains(.,'calendar:event-detail:under-hero:buy-tickets')]]) 
 			 *    e.g. If you pick Bily Joel then use Event ID of Bily Joel from the DOM (e.g. 3B005352966C17E4).
@@ -651,7 +653,7 @@ public class MSGTC007EventDetailsPage {
 			 */
 			//List<String> relatedEventIDs = new ArrayList<String>();
 			// TODO Auto-generated method stub
-			URI uri = new URI(eeProductionAPIEndPoint+myEDPEventID);
+			URI uri = new URI(eeProductionAPIEventEndPoint+myEDPEventID);
 
 			HttpResponse response = null;
 			DefaultHttpClient restClient = new DefaultHttpClient();
@@ -689,7 +691,10 @@ public class MSGTC007EventDetailsPage {
 					 * No related events Error handling.
 					 */
 				}
-
+				
+				/**
+				 * 2. Based on Event ID fetched in Step-1, query: https://api.msg.com/v2/events/3B005352966C17E4 for fetching related_events Array. 
+				 */
 				for (int j = 0; j <= eventsResultsData.length() - 1; j++) {
 					JSONObject singleEventResultSet = eventsResultsData.getJSONObject(j);
 
@@ -706,12 +711,15 @@ public class MSGTC007EventDetailsPage {
 					}
 				}
 			}
+			
 			/**
-			 * 1.4: iterate over the Event ids and find the date/time/venue of the event.
+			 * 3. In Response JSON you will get related events in JSONArray: "related_events":["3B00543AF4153ECF","3B005432FAE5327E"]
+			 *    Now parse through this Array to get the related events IDs
 			 */
+			int counterRelatedEvent=0;
 			for(String relatedEvent:myRelatedEventIDs)
 			{
-				uri = new URI(eeProductionAPIEndPoint+relatedEvent);
+				uri = new URI(eeProductionAPIEventEndPoint+relatedEvent);
 
 				response = null;
 				restClient = new DefaultHttpClient();
@@ -746,55 +754,120 @@ public class MSGTC007EventDetailsPage {
 					JSONArray eventsResultsData = eventsMetaData.getJSONArray("results");
 					if (eventsResultsData.length() == 0) {
 						/**
-						 * No related events Error handling.
+						 * ------ No related events Error handling goes here.
+						 */
+					}
+					
+					/**
+					 * 4. Based on Event ID fetched in Step-3, query: https://api.msg.com/v2/events/3B00543AF4153ECF and https://api.msg.com/v2/events/3B005432FAE5327E for fetching related event details. 
+					 */
+
+					for (int j = 0; j <= eventsResultsData.length() - 1; j++) {
+						JSONObject singleEventResultSet = eventsResultsData.getJSONObject(j);
+						/**
+						 * Create a multidimensional Array of Related events like as below:
+						 * Chris Stapleton 11/02/2018 19:00:00 KovZpZA7AAEA (Replace venue ID later with Venue Name)
+						 */
+						for (String Keys : singleEventResultSet.keySet()) {
+	/*						List<String> keys = new ArrayList<String>();
+							keys"name", "start_date", "start_time", "venue_id"};
+							if(keys){
+								myrelatedEvents[counterRelatedEvent][keys[Keys]]= singleEventResultSet.getString(Keys);
+							}*/
+							if (Keys.equals("name")) {
+								myrelatedEvents[counterRelatedEvent][0]= singleEventResultSet.getString(Keys);
+							}
+							
+							if (Keys.equals("start_date")) {
+								myrelatedEvents[counterRelatedEvent][1]= singleEventResultSet.getString(Keys);
+							}
+							
+							if (Keys.equals("start_time")) {
+								myrelatedEvents[counterRelatedEvent][2]= singleEventResultSet.getString(Keys);
+							}
+							
+							if (Keys.equals("venue_id")) {
+								myrelatedEvents[counterRelatedEvent][3]= singleEventResultSet.getString(Keys);
+							}
+						}
+						counterRelatedEvent++;
+					}
+				}
+			}
+			/**
+			 * Get the Venue Name.
+			 */
+			for(int i=0; i<=myRelatedEventIDs.size();i++)
+			{
+				uri = new URI(eeProductionAPIVenueEndPoint+myrelatedEvents[i][3]);
+
+				response = null;
+				restClient = new DefaultHttpClient();
+				httpGet = new HttpGet(uri);
+				/**
+				 * CAUTION --- Implement authorization if you plan to use v.25 api End Point.
+				 */
+				//httpGet.setHeader("Authorization", this.basicAuthKey);
+
+				try {
+					response = restClient.execute(httpGet);
+				} catch (ClientProtocolException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+				statusCode = response.getStatusLine().getStatusCode();
+
+				if (statusCode >= 200 && statusCode < 300) {
+					HttpEntity entity1 = response.getEntity();
+					String string1 = null;
+					try {
+						string1 = EntityUtils.toString(entity1);
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+
+					JSONObject eventsMetaData = new JSONObject(string1);
+					JSONArray eventsResultsData = eventsMetaData.getJSONArray("results");
+					if (eventsResultsData.length() == 0) {
+						/**
+						 * ------ No related events Error handling goes here.
 						 */
 					}
 
 					for (int j = 0; j <= eventsResultsData.length() - 1; j++) {
 						JSONObject singleEventResultSet = eventsResultsData.getJSONObject(j);
 
-						for (Object Keys : singleEventResultSet.keySet()) {
-							if (Keys.equals("related_events")) {
-								JSONArray relatedEventsData = singleEventResultSet.getJSONArray("related_events");
-								for (int k = 0; k <= relatedEventsData.length() - 1; k++) {
-									/**
-									 * 1.3: Use the Related Event IDs and find the event date/time/Venue.
-									 */
-									myRelatedEventIDs.add(relatedEventsData.getString(k).toString());	
-								}					
+						for (String Keys : singleEventResultSet.keySet()) {
+							if (Keys.equals("name")) {
+								myrelatedEvents[i][3] = singleEventResultSet.getString(Keys);	
 							}
 						}
 					}
 				}
 			}
 			
-			
-			/**
-			 * 2. Based on Event ID fetched in Step-1, query: https://api.msg.com/v2/events/3B005352966C17E4 for fetching related_events Array. 
-			 */
-			
-			
-			/**
-			 * 3. In Response JSON you will get related events in JSONArray: "related_events":["3B00543AF4153ECF","3B005432FAE5327E"]
-			 *    Now parse through this Array to get the related events IDs
-			 */
-			
-			
-			/**
-			 * 4. Based on Event ID fetched in Step-3, query: https://api.msg.com/v2/events/3B00543AF4153ECF and https://api.msg.com/v2/events/3B005432FAE5327E for fetching related event details. 
-			 */
-			
+			System.out.println(Arrays.deepToString(myrelatedEvents));	
 			
 			/**
 			 * 5. Now access the Interested in module in front-end: (XPATH: .//h2[contains(text(),'You Might Be Interested In')])
 			 */
-			
+			WebElement relatedEventSection = getWebElement(driver, selectors,"MSGTC007EventDetailsPageRelatedEventsSection");
+			if(relatedEventSection.isDisplayed())
+			{
+				LOGGER.info(this.myDriverParameters+" - "+pageName + " Page: Test Step-" + testNumber + " Related Events are present.");	
+			}
 			
 			/**
 			 * 6. Related Event Cards date/time: (XPATH: .//*[@class='event-detail-list'])
 			 * a. Date/Time: (XPATH: .//*[@class='event-detail-list']/li/time)
 			 * b. Venue: (XPATH: .//*[@class='event-detail-list']/li[2])
 			 */
+			WebElement relatedEventCardDateTime = getWebElement(driver, selectors,"MSGTC007EventDetailsPageDateTime");
+			WebElement relatedEventCardVenue = getWebElement(driver, selectors,"MSGTC007EventDetailsPageVenue");
 			
 			
 			/**
